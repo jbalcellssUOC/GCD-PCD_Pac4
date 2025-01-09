@@ -1,4 +1,4 @@
-<div style="display: flex; flex-direction: column; align-items: center; padding-bottom: 50px">
+<div style="display: flex; flex-direction: column; align-items: center;">
   <img src="images/logo-orbea.jpg" alt="Logo Orbea" height="90" />
 </div>
 
