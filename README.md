@@ -1,6 +1,6 @@
 <div style="display: flex; flex-direction: column; align-items: center; padding-bottom: 50px">
-  <img src="images/logo-orbea.jpg" alt="Logo Orbea" />
-  <img src="images/orbea-sample.png" alt="Orbea Sample" height="100" />
+  <img src="images/logo-orbea.jpg" alt="Logo Orbea" height="350" />
+  <img src="images/orbea-sample.png" alt="Orbea Sample" height="200" />
 </div>
 
 # Orbea Monegros Python Package
