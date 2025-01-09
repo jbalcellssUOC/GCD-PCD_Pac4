@@ -1,3 +1,8 @@
+<div style="display: flex; flex-direction: column; align-items: center; padding-bottom: 50px">
+  <img src="images/logo-orbea.jpg" alt="Logo Orbea" />
+  <img src="images/orbea-sample.png" alt="Orbea Sample" height="100" />
+</div>
+
 # Orbea Monegros Python Package
 
 Bienvenido al paquete de Python **Orbea Monegros**, desarrollado para analizar y gestionar los datos de la famosa prueba de ciclismo de montaña **Orbea Monegros 2024**. Este paquete incluye herramientas para manejar datos anonimizados de los ciclistas, realizar análisis estadísticos y generar visualizaciones de los resultados.
