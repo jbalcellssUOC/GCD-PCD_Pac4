@@ -1,5 +1,8 @@
 <div style="display: flex; flex-direction: column; align-items: center; padding-bottom: 50px">
   <img src="images/logo-orbea.jpg" alt="Logo Orbea" height="90" />
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: center; padding-bottom: 50px">
   <img src="images/orbea-sample.png" alt="Orbea Sample" height="200" />
 </div>
 
