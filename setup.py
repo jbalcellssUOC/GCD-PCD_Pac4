@@ -1,21 +1,24 @@
+"""
+GCD-2024_PAC4 setup.py
+"""
+
 from setuptools import setup, find_packages
 
 setup(
     name="orbea_monegros",
     version="1.0.0",
-    description="Paquete Python para analizar y gestionar datos de la Orbea Monegros 2024.",
-    long_description=open("README.md").read(),
+    description="Paquete Python Orbea Monegros 2024.",
+    long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
     author="Jordi Balcells Saenz",
     author_email="jbalcellss@uoc.edu",
     url="https://github.com/jbalcellssUOC/GCD-PCD_Pac4.git",
     packages=find_packages(),
     include_package_data=True,
-    install_requires=[
-        "pandas>=1.3.0",
-        "numpy>=1.21.0",
-        "matplotlib>=3.4.0"
-    ],
+    install_requires=["pandas>=1.3.0",
+                      "numpy>=1.21.0",
+                      "matplotlib>=3.4.0",
+                      "html-testRunner"],
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Intended Audience :: Education",
