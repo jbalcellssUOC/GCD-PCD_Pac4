@@ -19,14 +19,16 @@ def load_dataset(file_path: str, delimiter: str = ",") -> pd.DataFrame:
     Raises:
         FileNotFoundError: If the file does not exist.
         pd.errors.EmptyDataError: If the file is empty or invalid.
-        Exception: General error ocurred
+        Exception: General error occurred.
     """
     try:
         return pd.read_csv(file_path, delimiter=delimiter)
-    except FileNotFoundError:
+    except FileNotFoundError as e:
         print(f"Error: The file '{file_path}' was not found.")
-    except pd.errors.EmptyDataError:
+        raise e
+    except pd.errors.EmptyDataError as e:
         print(f"Error: The file '{file_path}' is empty or invalid.")
+        raise e
     except Exception as e:  # pylint: disable=broad-exception-caught
         print(f"An unexpected error occurred: {e}")
         raise

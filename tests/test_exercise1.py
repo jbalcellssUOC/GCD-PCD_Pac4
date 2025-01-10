@@ -5,13 +5,12 @@ GCD-2024_PAC4 Exercise1 Tests
 import unittest
 import os
 import tempfile
-from orbea_monegros.utils import load_dataset
-from orbea_monegros.main import exercise1
+from exercise1 import exercise1
 
 
 class TestExercise1(unittest.TestCase):
     """
-    Test suite for the exercise1 function and the load_dataset utility.
+    Test suite for the exercise1 function.
     """
 
     @classmethod
@@ -44,26 +43,25 @@ class TestExercise1(unittest.TestCase):
         """
         cls.tmp_dir.cleanup()
 
-    def test_load_dataset(self):
-        """
-        Test the load_dataset function from utils.
-        """
-        df = load_dataset(self.test_file, delimiter=";")
-
-        # Assertions
-        self.assertEqual(len(df), 9, "The number of cyclists should be 9")
-        self.assertListEqual(
-            df.columns.tolist(),
-            ["dorsal", "biker", "club", "time"],
-            "The columns do not match the expected values",
-        )
-
     def test_exercise1(self):
         """
         Test the exercise1 function with the temporary dataset.
         """
         # Call the function
-        exercise1(self.test_file)
+        result = exercise1(self.test_file)
+
+        # Assertions
+        self.assertEqual(
+            result["num_cyclists"], 9, "The number of cyclists should be 9"
+        )
+        self.assertListEqual(
+            result["columns"],
+            ["dorsal", "biker", "club", "time"],
+            "The columns do not match the expected values",
+        )
+        self.assertEqual(
+            len(result["head"]), 5, "The head should contain the first 5 rows"
+        )
 
 
 if __name__ == "__main__":
