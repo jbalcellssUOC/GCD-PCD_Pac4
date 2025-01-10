@@ -1,6 +1,6 @@
 pylint>=3.0.0
-HTMLTestRunner-rv
 pandas>=1.3.0
 numpy>=1.21.0
 matplotlib>=3.4.0
 flake8>=3.9.0
+html-testRunner>=1.2.1

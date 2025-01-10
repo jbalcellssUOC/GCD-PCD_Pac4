@@ -15,7 +15,10 @@ setup(
     url="https://github.com/jbalcellssUOC/GCD-PCD_Pac4.git",
     packages=find_packages(),
     include_package_data=True,
-    install_requires=["pandas>=1.3.0", "numpy>=1.21.0", "matplotlib>=3.4.0"],
+    install_requires=["pandas>=1.3.0",
+                      "numpy>=1.21.0",
+                      "matplotlib>=3.4.0",
+                      "html-testRunner"],
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Intended Audience :: Education",

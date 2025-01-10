@@ -5,7 +5,8 @@ GCD-2024_PAC4 Exercise1 Tests
 import unittest
 import os
 import tempfile
-from exercise1 import exercise1
+
+from orbea_monegros.exercise1 import exercise1
 
 
 class TestExercise1(unittest.TestCase):

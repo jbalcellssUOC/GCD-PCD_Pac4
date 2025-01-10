@@ -19,16 +19,28 @@ def load_dataset(file_path: str, delimiter: str = ",") -> pd.DataFrame:
     Raises:
         FileNotFoundError: If the file does not exist.
         pd.errors.EmptyDataError: If the file is empty or invalid.
+        ValueError: Malformed data in dataset,
         Exception: General error occurred.
     """
     try:
-        return pd.read_csv(file_path, delimiter=delimiter)
+        # Load dataset
+        df = pd.read_csv(file_path, delimiter=delimiter)
+
+        # Validate the delimiter by checking column count
+        if df.empty or len(df.columns) < 2:
+            raise ValueError(
+                f"Invalid delimiter '{delimiter}' used for file '{file_path}'."
+            )
+        return df
     except FileNotFoundError as e:
         print(f"Error: The file '{file_path}' was not found.")
         raise e
     except pd.errors.EmptyDataError as e:
         print(f"Error: The file '{file_path}' is empty or invalid.")
         raise e
-    except Exception as e:  # pylint: disable=broad-exception-caught
+    except ValueError as e:
+        print(f"Error: {e}")
+        raise e
+    except Exception as e:
         print(f"An unexpected error occurred: {e}")
         raise

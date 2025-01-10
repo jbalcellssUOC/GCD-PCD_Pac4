@@ -1,7 +1,7 @@
 {
     "python.envFile": "${workspaceFolder}/.env",
     "terminal.integrated.cwd": "${workspaceFolder}",    
-    "python.analysis.extraPaths": ["./orbea_monegros"],
+    "python.analysis.extraPaths": ["./orbea_monegros", "./tests"],
 
     "python.testing.unittestArgs": ["-v", "-s", "./tests", "-p", "test_*.py"],
     "python.testing.unittestEnabled": true,

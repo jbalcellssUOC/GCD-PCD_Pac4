@@ -2,13 +2,13 @@
 GCD-2024_PAC4 Utils Tests
 """
 
-import unittest
-import HtmlTestRunner
 
 import os
+import unittest
 import tempfile
 import pandas as pd
 
+import HtmlTestRunner
 from orbea_monegros.utils import load_dataset
 
 
@@ -71,12 +71,12 @@ class TestUtils(unittest.TestCase):
         Test loading a valid dataset with an incorrect delimiter.
         """
         test_data = """dorsal;biker;club;time
-4515;Christopher Bauer;Independiente;00:00:00
-2017;Mary White;Independiente;00:00:00
-"""
+    4515;Christopher Bauer;Independiente;00:00:00
+    2017;Mary White;Independiente;00:00:00
+    """
         test_file = self.create_test_file("invalid_delimiter.csv", test_data)
 
-        with self.assertRaises(pd.errors.ParserError):
+        with self.assertRaises(ValueError):
             load_dataset(test_file, delimiter=",")
 
     def test_load_dataset_file_not_found(self):
@@ -110,4 +110,12 @@ class TestUtils(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner())
+    REPORT_DIR = os.path.abspath("./test_reports")
+    os.makedirs(REPORT_DIR, exist_ok=True)
+
+    runner = HtmlTestRunner.HTMLTestRunner(
+        # output=REPORT_DIR,
+        report_name="LoadDatasetTests",
+        report_title="Test Report for Load Dataset"
+    )
+    unittest.main(testRunner=runner)
