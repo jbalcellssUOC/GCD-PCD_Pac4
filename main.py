@@ -6,8 +6,26 @@ This script organizes and executes the PAC4 exercises.
 
 import argparse
 import sys
+import pandas as pd
+
 from orbea_monegros.exercise1 import exercise1
 from orbea_monegros.exercise2 import exercise2
+
+
+def run_exercise1(dataset_path: str,
+                  print_results: bool = False) -> pd.DataFrame:
+    """ Execute exercise1 """
+
+    result: dict = exercise1(dataset_path, print_results)
+    return result
+
+
+def run_exercise2(df: pd.DataFrame,
+                  print_results: bool = False) -> pd.DataFrame:
+    """ Execute exercise2 """
+
+    result = exercise2(df, print_results)
+    return result
 
 
 class ExerciseRunner:
@@ -18,7 +36,7 @@ class ExerciseRunner:
     def __init__(self):
         self.dataset = None
 
-    def execute_exercise(self, index, dataset_path, exercises):
+    def execute_exercise(self, index, dataset_path, exercises) -> None:
 
         """
         Executes a specific exercise.
@@ -34,24 +52,21 @@ class ExerciseRunner:
 
         if index == 1:
             print(f"\n--- Running Exercise {index} ---\n")
-            self.dataset = exercises[index](dataset_path)
+            self.dataset = exercises[index](dataset_path, True)
             return self.dataset
-
-        # Ensure Exercise 1 has been executed
-        if self.dataset is None:
-            sys.exit("ERROR: You must execute Exercise 1 before running "
-                     "subsequent exercises.")
         else:
             if index == 2:
-                print(f"\n--- Running Exercise {index} ---\n")
-                result = exercises[index]
-                return result
+                print("\n--- Running Exercise 1 ---")
+                self.dataset = exercises[1](dataset_path, False)
+                print(f"--- Running Exercise {index} ---\n")
+                self.dataset = exercises[index](self.dataset, True)
+                return self.dataset
 
         print(f"\n--- Running Exercise {index} ---\n")
         return exercises[index](self.dataset)
 
 
-def check_arguments(args, exercises):
+def check_arguments(args, exercises) -> str:
     """
     Validate and process the command-line arguments.
 
@@ -84,12 +99,14 @@ def check_arguments(args, exercises):
 
 
 def main():
+
     """
     Main function to execute the requested exercises based on
     command-line arguments.
     """
+
     # List of exercise functions
-    exercises = [None, exercise1, exercise2]
+    exercises = [None, run_exercise1, run_exercise2]
 
     # Argument validation
     parser = argparse.ArgumentParser(description="GCD-2024 PAC4 Runner")
