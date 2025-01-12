@@ -10,6 +10,9 @@ import pandas as pd
 
 from orbea_monegros.exercise1 import exercise1
 from orbea_monegros.exercise2 import exercise2
+from orbea_monegros.exercise3 import exercise3
+from orbea_monegros.exercise4 import exercise4
+from orbea_monegros.exercise5 import exercise5
 
 
 def run_exercise1(dataset_path: str,
@@ -28,6 +31,30 @@ def run_exercise2(df: pd.DataFrame,
     return result
 
 
+def run_exercise3(df: pd.DataFrame,
+                  print_results: bool = False) -> pd.DataFrame:
+    """ Execute exercise3 """
+
+    result = exercise3(df, print_results)
+    return result
+
+
+def run_exercise4(df: pd.DataFrame,
+                  print_results: bool = False) -> pd.DataFrame:
+    """ Execute exercise4 """
+
+    result = exercise4(df, print_results)
+    return result
+
+
+def run_exercise5(df: pd.DataFrame,
+                  print_results: bool = False) -> None:
+    """ Execute exercise5 """
+
+    exercise5(df, print_results)
+    return None
+
+
 class ExerciseRunner:
     """
     Class to manage the execution of exercises and shared state.
@@ -36,6 +63,32 @@ class ExerciseRunner:
     def __init__(self):
         self.original_dataset = None
         self.clean_dataset = None
+        self.grouped_dataset = None
+        self.cleanclub_dataset = None
+
+    def ensure_dependencies(self, index, dataset_path, exercises):
+
+        """
+        Ensure the necessary dependencies are loaded for
+        the given exercise index.
+
+        Parameters:
+            index (int): Exercise index.
+            dataset_path (str): Path to the dataset file.
+            exercises (list): List of exercise functions.
+        """
+
+        if index >= 1 and self.original_dataset is None:
+            print("\n--- Running Exercise 1 ---")
+            self.original_dataset = exercises[1](dataset_path, False)
+
+        if index >= 2 and self.clean_dataset is None:
+            print("\n--- Running Exercise 2 ---")
+            self.clean_dataset = exercises[2](self.original_dataset, False)
+
+        if index >= 4 and self.cleanclub_dataset is None:
+            print("\n--- Running Exercise 4 ---")
+            self.cleanclub_dataset = exercises[4](self.clean_dataset, False)
 
     def execute_exercise(self, index, dataset_path, exercises) -> None:
 
@@ -51,21 +104,22 @@ class ExerciseRunner:
             Any: The result of the executed exercise.
         """
 
+        self.ensure_dependencies(index, dataset_path, exercises)
+
         if index == 1:
-            print(f"\n--- Running Exercise {index} ---")
             self.original_dataset = exercises[index](dataset_path, True)
-        else:
-            if index == 2:
-                if self.original_dataset is None:
-                    print("\n--- Running Exercise 1 ---")
-                    self.original_dataset = exercises[1](dataset_path, False)
-                print(f"--- Running Exercise {index} ---")
-                self.clean_dataset = exercises[index](
-                    self.original_dataset,
-                    True)
+        elif index == 2:
+            self.clean_dataset = exercises[index](self.original_dataset, True)
+        elif index == 3:
+            self.grouped_dataset = exercises[index](self.clean_dataset, True)
+        elif index == 4:
+            self.cleanclub_dataset = exercises[index](self.clean_dataset, True)
+        elif index == 5:
+            exercises[index](self.cleanclub_dataset, True)
 
 
 def check_arguments(args, exercises) -> str:
+
     """
     Validate and process the command-line arguments.
 
@@ -80,6 +134,7 @@ def check_arguments(args, exercises) -> str:
     Raises:
         SystemExit: If arguments are invalid.
     """
+
     if not args.dataset:
         sys.exit(
             "ERROR: Dataset path is required. Use -d or --dataset to "
@@ -105,7 +160,13 @@ def main():
     """
 
     # List of exercise functions
-    exercises = [None, run_exercise1, run_exercise2]
+    exercises = [None,
+                 run_exercise1,
+                 run_exercise2,
+                 run_exercise3,
+                 run_exercise4,
+                 run_exercise5,
+                 ]
 
     # Parse & Validate arguments
     parser = argparse.ArgumentParser(description="GCD-2024 PAC4 Runner")
