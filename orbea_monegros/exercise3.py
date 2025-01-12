@@ -77,7 +77,7 @@ def exercise3(df: pd.DataFrame,
         plt.grid(axis='y', linestyle='--', alpha=0.7)
         # timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         # filename = f"img/Histograma_{timestamp}.png"
-        filename = "img/Histograma.png"
+        filename = "img/histograma.png"
         plt.savefig(filename)
         print(f"Historgram saved as: {filename}")
         plt.show()
@@ -95,7 +95,7 @@ def exercise3(df: pd.DataFrame,
         plt.ylabel('Number of Cyclists')
         plt.grid(True, linestyle='--', alpha=0.7)
         # scatter_filename = f"img/ScatterPlot_{timestamp}.png"
-        scatter_filename = "img/ScatterPlot.png"
+        scatter_filename = "img/ccatter_plot.png"
         plt.savefig(scatter_filename)
         print(f"ScatterPlot saved as: {scatter_filename}\n")
         plt.show()
