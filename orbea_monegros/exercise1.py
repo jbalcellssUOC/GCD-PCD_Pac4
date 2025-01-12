@@ -8,7 +8,9 @@ import pandas as pd
 from orbea_monegros.utils import load_dataset
 
 
-def exercise1(dataset_path: str) -> dict:
+def exercise1(dataset_path: str,
+              print_results: bool) -> pd.DataFrame:
+
     """
     Executes the operations for Exercise 1:
         1. Imports the dataset into a DataFrame.
@@ -17,38 +19,28 @@ def exercise1(dataset_path: str) -> dict:
         4. Shows the columns of the DataFrame.
 
     Args:
-        dataset_path (str): The path to the dataset file.
+        dataset_path (str): Path to the dataset file.
+        print_results (bool): If true print results
 
     Returns:
-        dict: A dictionary containing the results of the operations:
-            - "head": First 5 rows of the DataFrame as a list of dicts.
-            - "num_cyclists": Number of cyclists who participated.
-            - "columns": List of column names in the DataFrame.
+        pd.Dataframe: Loaded Dataframe
     """
+
     try:
         # Import the dataset into a DataFrame
         df: pd.DataFrame = load_dataset(dataset_path, delimiter=";")
 
-        # Show First 5 rows
-        print("\nFirst 5 rows of the dataset:\n")
-        print(df.head())
-        head = df.head().to_dict(orient="records")
+        if print_results:
+            # Show First 5 rows
+            print("\nFirst 5 rows of the dataset:\n")
+            print(df.head())
+            # Show total cyclists who participated
+            print(f"\nCyclists who participated in the event: {len(df)}")
+            # Show Dataframe columns
+            print(f"Columns of the DataFrame: {df.columns.tolist()}\n")
 
-        # Show total of cyclists who participated
-        num_cyclists: int = len(df)
-        print(f"\nCyclists who participated in the event: {num_cyclists}")
-
-        # Show all DataFrame columns
-        columns: list[str] = df.columns.tolist()
-        print(f"\nColumns of the DataFrame: {columns}")
-
-        # Return results
-        return {
-            "head": head,
-            "num_cyclists": num_cyclists,
-            "columns": columns,
-        }
+        return df
 
     except Exception as e:  # pylint: disable=broad-exception-caught
-        print(f"An unexpected error occurred: {e}")
+        print(f"Ex1, an unexpected error occurred: {e}")
         raise
