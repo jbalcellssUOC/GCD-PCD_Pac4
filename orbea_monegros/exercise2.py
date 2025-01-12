@@ -46,10 +46,8 @@ def exercise2(df: pd.DataFrame,
     try:
         # Step 1: Anonymize the 'biker' column
         df_anonymized = name_surname(df)
-
         # Step 2: Remove cyclists with time '00:00:00'
         df_cleaned = df_anonymized[df_anonymized['time'] != '00:00:00']
-
         # Step 3: Retrieve data for dorsal = 1000
         cyclist_1000 = df_cleaned[df_cleaned['dorsal'] == 1000]
 

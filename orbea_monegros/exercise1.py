@@ -32,7 +32,7 @@ def exercise1(dataset_path: str,
 
         if print_results:
             # Show First 5 rows
-            print("First 5 rows of the dataset:\n")
+            print("\nFirst 5 rows of the dataset:\n")
             print(df.head())
             # Show total cyclists who participated
             print(f"\nCyclists who participated in the event: {len(df)}")

@@ -34,7 +34,8 @@ class ExerciseRunner:
     """
 
     def __init__(self):
-        self.dataset = None
+        self.original_dataset = None
+        self.clean_dataset = None
 
     def execute_exercise(self, index, dataset_path, exercises) -> None:
 
@@ -51,19 +52,17 @@ class ExerciseRunner:
         """
 
         if index == 1:
-            print(f"\n--- Running Exercise {index} ---\n")
-            self.dataset = exercises[index](dataset_path, True)
-            return self.dataset
+            print(f"\n--- Running Exercise {index} ---")
+            self.original_dataset = exercises[index](dataset_path, True)
         else:
             if index == 2:
-                print("\n--- Running Exercise 1 ---")
-                self.dataset = exercises[1](dataset_path, False)
-                print(f"--- Running Exercise {index} ---\n")
-                self.dataset = exercises[index](self.dataset, True)
-                return self.dataset
-
-        print(f"\n--- Running Exercise {index} ---\n")
-        return exercises[index](self.dataset)
+                if self.original_dataset is None:
+                    print("\n--- Running Exercise 1 ---")
+                    self.original_dataset = exercises[1](dataset_path, False)
+                print(f"--- Running Exercise {index} ---")
+                self.clean_dataset = exercises[index](
+                    self.original_dataset,
+                    True)
 
 
 def check_arguments(args, exercises) -> str:
@@ -108,36 +107,35 @@ def main():
     # List of exercise functions
     exercises = [None, run_exercise1, run_exercise2]
 
-    # Argument validation
+    # Parse & Validate arguments
     parser = argparse.ArgumentParser(description="GCD-2024 PAC4 Runner")
     parser.add_argument(
         "-d",
         "--dataset",
         type=str,
         required=True,
-        help="Path to dataset file required for running exercises.",
+        help="[Mandatory] Path to dataset file required for " +
+        "running exercises.",
     )
     parser.add_argument(
         "-e",
         "--exercise",
         type=int,
-        help="Specify the exercise number to run (default: run all).",
+        help="[Optional] Specify the exercise number " +
+        "to run (default: run all).",
     )
-
-    # Parse & Validate arguments
     args = parser.parse_args()
     dataset_path, exercise_requested = check_arguments(args, exercises)
 
     # Create exercises runner instance
     runner = ExerciseRunner()
     if exercise_requested == "all":
-        print("\nExecuting all exercises...\n")
+        print("\n... Execute all exercises ...")
         for i in range(1, len(exercises)):
             runner.execute_exercise(i, dataset_path, exercises)
     else:
         runner.execute_exercise(exercise_requested, dataset_path, exercises)
 
 
-# Set script name
 if __name__ == "__main__":
     main()
