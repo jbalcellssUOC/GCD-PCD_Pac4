@@ -1,12 +1,11 @@
-
 """
 GCD-2024_PAC4 Exercise3 Tests
 """
 
 import unittest
 from unittest.mock import patch
-
 import os
+import io
 import pandas as pd
 from orbea_monegros.exercise1 import exercise1
 from orbea_monegros.exercise2 import exercise2
@@ -91,6 +90,29 @@ class TestExercise3(unittest.TestCase):
         self.assertTrue(grouped_df.empty,
                         "Output should be an empty DataFrame when input is "
                         "empty.")
+
+    @patch("sys.stdout", new_callable=io.StringIO)
+    def test_exercise3_prints(self, mock_stdout):
+        """
+        Test the print outputs of exercise3 when print_results=True.
+        """
+        exercise3(self.synthetic_data, print_results=True)
+
+        output = mock_stdout.getvalue()
+        self.assertIn("First 15 rows of the grouped times DataFrame:",
+                      output,
+                      "The output does not contain the expected print " +
+                      "statements.")
+        self.assertIn("Grouped DataFrame:", output,
+                      "The output does not contain the expected grouped " +
+                      "DataFrame print.")
+
+    def test_exercise3_generic_exception(self):
+        """
+        Test exercise3 for handling generic exceptions.
+        """
+        with self.assertRaises(Exception):
+            exercise3(None, print_results=False)
 
     @unittest.skipUnless(os.path.exists("data/dataset.csv"),
                          "Real data file is missing.")

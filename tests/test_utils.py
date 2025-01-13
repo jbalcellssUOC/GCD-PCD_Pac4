@@ -7,6 +7,9 @@ import tempfile
 import unittest
 import pandas as pd
 import HtmlTestRunner
+import io
+from unittest.mock import patch
+
 from orbea_monegros.utils import load_dataset
 
 
@@ -107,6 +110,20 @@ class TestUtils(unittest.TestCase):
 
             with self.assertRaises(pd.errors.ParserError):
                 load_dataset(test_file, delimiter=",")
+
+    def test_load_dataset_generic_exception(self):
+        """
+        Test handling of a generic exception in load_dataset.
+        """
+        invalid_input = 12345  # Valor no válido para file_path
+
+        with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
+            with self.assertRaises(Exception):
+                load_dataset(invalid_input, delimiter=";")
+
+            # Verificar que el mensaje esperado está en la salida
+            self.assertIn("An unexpected error occurred",
+                          mock_stdout.getvalue())
 
 
 if __name__ == "__main__":
