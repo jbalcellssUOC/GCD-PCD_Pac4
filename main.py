@@ -116,6 +116,7 @@ class ExerciseRunner:
         elif index == 4:
             self.cleanclub_dataset = exercises[index](self.clean_dataset, True)
         elif index == 5:
+            print("\n--- Running Exercise 5 ---")
             exercises[index](self.cleanclub_dataset, True)
 
 

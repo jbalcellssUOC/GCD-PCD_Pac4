@@ -56,10 +56,10 @@ def exercise5(df: pd.DataFrame, print_results: bool) -> None:
         percentage = (best_cyclist_position / total_cyclists) * 100
 
         if print_results:
-            print("\nCyclists from UCSC:\n")
+            print("\nCyclists from UCSC club:\n")
             print(ucsc_cyclists)
 
-            print("\nBest cyclist from UCSC:\n")
+            print("\nBest cyclist in UCSC club:\n")
             print(best_cyclist)
 
             print("\nPosition of the best UCSC cyclist: " +
