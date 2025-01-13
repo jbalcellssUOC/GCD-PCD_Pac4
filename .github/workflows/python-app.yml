@@ -44,13 +44,13 @@ jobs:
         mkdir -p docs
         pdoc --output-dir docs/orbea_monegros orbea_monegros          
   
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: docs/orbea_monegros
-        destination_dir: .
-        force_orphan: true
+    # - name: Deploy to GitHub Pages
+    #   uses: peaceiris/actions-gh-pages@v3
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+    #     publish_dir: docs/orbea_monegros
+    #     destination_dir: .
+    #     force_orphan: true
 
     - name: Lint with flake8
       run: |
