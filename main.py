@@ -111,6 +111,7 @@ class ExerciseRunner:
         elif index == 2:
             self.clean_dataset = exercises[index](self.original_dataset, True)
         elif index == 3:
+            print("\n--- Running Exercise 3 ---")
             self.grouped_dataset = exercises[index](self.clean_dataset, True)
         elif index == 4:
             self.cleanclub_dataset = exercises[index](self.clean_dataset, True)

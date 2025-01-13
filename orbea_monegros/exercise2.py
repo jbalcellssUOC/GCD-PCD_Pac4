@@ -37,7 +37,7 @@ def exercise2(df: pd.DataFrame,
 
     Args:
         df (pd.DataFrame): Dataframe to process.
-        print_results (bool): If true print results
+        print_results (bool): Whether to print results or not.
 
     Returns:
         pd.Dataframe: Processed Dataframe
@@ -46,9 +46,11 @@ def exercise2(df: pd.DataFrame,
     try:
         # Step 1: Anonymize the 'biker' column
         df_anonymized = name_surname(df)
+
         # Step 2: Remove cyclists with time '00:00:00'
         df_cleaned = df_anonymized[df_anonymized['time'] != '00:00:00']
-        # Step 3: Retrieve data for dorsal = 1000
+
+        # Step 3: Get data for dorsal = 1000
         cyclist_1000 = df_cleaned[df_cleaned['dorsal'] == 1000]
 
         if print_results:

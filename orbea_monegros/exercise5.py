@@ -7,6 +7,7 @@ import pandas as pd
 
 
 def exercise5(df: pd.DataFrame, print_results: bool) -> None:
+
     """
     Analyzes the UCSC club data to answer specific questions.
 
@@ -17,8 +18,9 @@ def exercise5(df: pd.DataFrame, print_results: bool) -> None:
     Returns:
         dict: A dictionary with the results for the analysis.
     """
+
     try:
-        df = df.copy()
+        df = df.copy()  # Copy Dataframe
 
         # Filter UCSC cyclists
         ucsc_cyclists = df[df['club_clean'] == 'UCSC']
