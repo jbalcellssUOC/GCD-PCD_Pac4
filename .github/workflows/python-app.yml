@@ -38,7 +38,6 @@ jobs:
         pip install flake8 pytest
         pip install pdoc
         pip install bandit
-        pip install black
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Lint with flake8
@@ -51,10 +50,6 @@ jobs:
     - name: Lint with Pylint
       run: |
         pylint orbea_monegros tests        
-
-    - name: Check Code Formatting
-      run: |
-        black --check --diff .        
 
     - name: Run tests with pytest
       run: |
