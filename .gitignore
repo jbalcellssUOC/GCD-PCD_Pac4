@@ -130,6 +130,8 @@ celerybeat.pid
 # Environments
 .env
 .venv
+.venvtest
+.envtest
 env/
 venv/
 ENV/
@@ -173,3 +175,4 @@ cython_debug/
 ### VisualStudioCode ###
 .vscode/*
 .vscode/
+.pipreqsignore
