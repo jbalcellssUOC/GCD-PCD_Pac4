@@ -110,10 +110,11 @@ class TestUtils(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    REPORT_DIR = os.path.abspath("./test_reports")
+    REPORT_DIR = os.path.abspath("./coverage")
     os.makedirs(REPORT_DIR, exist_ok=True)
 
     runner = HtmlTestRunner.HTMLTestRunner(
+        output=REPORT_DIR,
         report_name="LoadDatasetTests",
         report_title="Test Report for Load Dataset"
     )

@@ -53,7 +53,7 @@ jobs:
 
     - name: Run tests with pytest
       run: |
-        pytest --maxfail=5 --disable-warnings --cov=orbea_monegros --cov-report=xml
+        pytest --maxfail=5 --disable-warnings --cov=orbea_monegros --cov-report=xml:coverage/coverage.xml --cov-report=html:coverage
 
     - name: Run Bandit
       run: bandit -r .      

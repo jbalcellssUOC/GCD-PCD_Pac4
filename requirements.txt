@@ -6,3 +6,4 @@ flake8>=3.9.0
 html-testRunner>=1.2.1
 faker
 pdoc
+pytest-cov

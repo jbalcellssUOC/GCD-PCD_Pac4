@@ -7,7 +7,7 @@ and generates an HTML report using HtmlTestRunner.
 
 Features:
 - Automatically discovers all test files matching the pattern "test_*.py".
-- Generates a structured HTML report in the "tests_reports" directory.
+- Generates a structured HTML report in the "coverage" directory.
 - Ensures the report directory is created if it does not exist.
 
 How to Use:
@@ -24,7 +24,7 @@ import HtmlTestRunner
 if __name__ == "__main__":
     # Define the test directory and report output directory
     TEST_DIR = "./tests"
-    REPORT_DIR = "./tests_reports"
+    REPORT_DIR = "./coverage"
 
     # Ensure the report directory exists
     os.makedirs(REPORT_DIR, exist_ok=True)
