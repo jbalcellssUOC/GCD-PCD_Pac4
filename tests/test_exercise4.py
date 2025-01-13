@@ -3,6 +3,8 @@ GCD-2024_PAC4 Exercise4 Tests
 """
 
 import unittest
+from unittest.mock import patch
+import io
 import pandas as pd
 
 from orbea_monegros.exercise4 import exercise4, clean_club
@@ -109,6 +111,30 @@ class TestExercise4(unittest.TestCase):
         result_df = exercise4(empty_df, print_results=False)
         self.assertTrue(result_df.empty,
                         "Output should be an empty DataFrame.")
+
+    def test_exercise4_prints(self):
+        """
+        Test the print outputs of exercise4 when print_results=True.
+        """
+        with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
+            exercise4(self.synthetic_data,
+                      print_results=True)
+
+            output = mock_stdout.getvalue()
+
+            # Check print outputs
+            self.assertIn("First 15 rows of the DataFrame with " +
+                          "cleaned clubs:",
+                          output)
+            self.assertIn("Grouped DataFrame with participant counts:",
+                          output)
+
+    def test_exercise4_exception(self):
+        """
+        Test exception handling in exercise4.
+        """
+        with self.assertRaises(Exception):
+            exercise4(None, print_results=False)
 
 
 if __name__ == "__main__":

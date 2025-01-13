@@ -3,6 +3,8 @@ GCD-2024_PAC4 Exercise5 Tests
 """
 
 import unittest
+from unittest.mock import patch
+import io
 import pandas as pd
 
 from orbea_monegros.exercise5 import exercise5
@@ -110,6 +112,25 @@ class TestExercise5(unittest.TestCase):
                                msg="The function should raise an error for " +
                                "empty DataFrame."):
             exercise5(empty_df, print_results=False)
+
+    def test_exercise5_prints(self):
+        """
+        Test the print outputs of exercise5 when print_results=True.
+        """
+        test_data = {
+            "dorsal": [1, 2, 3],
+            "biker": ["Cyclist A", "Cyclist B", "Cyclist C"],
+            "club_clean": ["UCSC", "UCSC", "OTHER"],
+            "time": ["01:30:00", "01:20:00", "02:00:00"]
+        }
+        df = pd.DataFrame(test_data)
+        with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
+            exercise5(df, print_results=True)
+            output = mock_stdout.getvalue()
+            self.assertIn("Cyclists from UCSC club:", output)
+            self.assertIn("Best cyclist in UCSC club:", output)
+            self.assertIn("Position of the best UCSC cyclist:", output)
+            self.assertIn("Percentage over the total:", output)
 
 
 if __name__ == "__main__":

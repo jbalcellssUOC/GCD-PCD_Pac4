@@ -3,8 +3,9 @@ GCD-2024_PAC4 Exercise2 Tests
 """
 
 import unittest
+from unittest.mock import patch
+import io
 import pandas as pd
-
 from orbea_monegros.exercise2 import exercise2
 
 
@@ -16,7 +17,7 @@ class TestExercise2(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         """
-        Set up a temporary directory and dataset file before running tests.
+        Set up a temporary dataset for testing.
         """
         cls.test_data = pd.DataFrame({
             "dorsal": [4515, 2017, 1000, 1469, 4536, 1810],
@@ -80,6 +81,28 @@ class TestExercise2(unittest.TestCase):
             "The number of rows in the processed DataFrame should be " +
             "less or equal to the input."
         )
+
+    @patch("sys.stdout", new_callable=io.StringIO)
+    def test_exercise2_prints(self, mock_stdout):
+        """
+        Test the print outputs of exercise2 when print_results=True.
+        """
+        exercise2(self.test_data, print_results=True)
+
+        output = mock_stdout.getvalue()
+        self.assertIn("Cyclists in anonymized DataFrame:", output,
+                      "The output does not contain expected print " +
+                      "statements.")
+        self.assertIn("Cyclists after cleaning:", output,
+                      "The output does not contain the expected cleaning " +
+                      "information.")
+
+    def test_exercise2_generic_exception(self):
+        """
+        Test exercise2 for handling generic exceptions.
+        """
+        with self.assertRaises(Exception):
+            exercise2(None, print_results=False)
 
 
 if __name__ == "__main__":
