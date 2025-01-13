@@ -42,7 +42,7 @@ jobs:
     - name: Generate Documentation
       run: |
         mkdir docs
-        pdoc --html --output-dir docs orbea_monegros          
+        pdoc --output-dir docs orbea_monegros          
   
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
