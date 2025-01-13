@@ -52,7 +52,6 @@ def run_exercise5(df: pd.DataFrame,
     """ Execute exercise5 """
 
     exercise5(df, print_results)
-    return None
 
 
 class ExerciseRunner:
