@@ -22,10 +22,10 @@ def clean_club(club: str) -> str:
     if not isinstance(club, str):
         return "INDEPENDIENTE"
 
-    # 1 Step, convert names to uppercase
+    # Step 1: Convert names to uppercase
     club = club.upper()
 
-    # 2 step, replace some pattern values with nothing
+    # Step 2: replace some pattern values with nothing
     replace_values = [
         'PEÑA CICLISTA', 'PENYA CICLISTA', 'AGRUPACIÓN CICLISTA',
         'AGRUPACION CICLISTA', 'AGRUPACIÓ CICLISTA',
@@ -34,7 +34,7 @@ def clean_club(club: str) -> str:
     for value in replace_values:
         club = club.replace(value, '')
 
-    # Replace patterns at the beginning
+    # Step 3: Replace patterns at the beginning
     replace_start_patterns = [
         r'^C\.C\.\s*', r'^C\.C\s*', r'^CC\s*', r'^C\.D\.\s*', r'^C\.D\s*',
         r'^CD\s*', r'^A\.C\.\s*', r'^A\.C\s*', r'^AC\s*', r'^A\.D\.\s*',
@@ -46,7 +46,7 @@ def clean_club(club: str) -> str:
     for pattern in replace_start_patterns:
         club = re.sub(pattern, '', club)
 
-    # Replace patterns at the end of the string
+    # Step 4: Replace patterns at the end of the string
     replace_end_patterns = [
         r'\bT\.T\.\b', r'\bT\.T\b', r'\bTT\b', r'\bT\.E\.\b', r'\bT\.E\b',
         r'\bTE\b', r'\bC\.C\.\b', r'\bC\.C\b', r'\bCC\b', r'\bC\.D\.\b',
@@ -57,16 +57,17 @@ def clean_club(club: str) -> str:
     for pattern in replace_end_patterns:
         club = re.sub(pattern, '', club)
 
-    # Additional - clean dot's
+    # Step 5: Additional - clean dot's and whitespaces
     club = re.sub(r'^\.\s*', '', club)
     club = re.sub(r'\.\s*$', '', club)
-
     # Strip whitespace from the beginning and end of strings
     club = club.strip()
+
     return club if club else "INDEPENDIENTE"
 
 
-def exercise4(df: pd.DataFrame, print_results: bool) -> pd.DataFrame:
+def exercise4(df: pd.DataFrame,
+              print_results: bool) -> pd.DataFrame:
 
     """
     Cleans club names and creates a new grouped DataFrame.
@@ -78,11 +79,22 @@ def exercise4(df: pd.DataFrame, print_results: bool) -> pd.DataFrame:
     Returns:
         pd.DataFrame: DataFrame grouped by cleaned club names.
     """
-    try:
-        df = df.copy()
 
-        # Clean club names
+    try:
+        df = df.copy()  # Copy Dataframe
+
+        # Step 1: Clean club names
         df['club_clean'] = df['club'].apply(clean_club)
+
+        # Step 2: Group by club_clean names and count participants
+        grouped_df = df.groupby(
+            'club_clean').size().reset_index(
+                name='participant_count')
+
+        # Step 3: Sort by participant count (descending order)
+        grouped_df = grouped_df.sort_values(
+            by='participant_count',
+            ascending=False)
 
         if print_results:
             # Print the first 15 rows of the updated DataFrame
@@ -90,17 +102,7 @@ def exercise4(df: pd.DataFrame, print_results: bool) -> pd.DataFrame:
             with pd.option_context('display.max_colwidth', None):
                 print(df.head(15), "\n")
 
-        # Group by club_clean names and count participants
-        grouped_df = df.groupby(
-            'club_clean').size().reset_index(
-                name='participant_count')
-
-        # Sort by participant count (descending order)
-        grouped_df = grouped_df.sort_values(
-            by='participant_count',
-            ascending=False)
-
-        if print_results:
+            # Print Dataframe
             print("\nGrouped DataFrame with participant counts:\n")
             print(grouped_df, "\n")
 

@@ -27,16 +27,16 @@ def exercise1(dataset_path: str,
     """
 
     try:
-        # Import the dataset into a DataFrame
+        # Step 1: Import the dataset into a DataFrame
         df: pd.DataFrame = load_dataset(dataset_path, delimiter=";")
 
         if print_results:
-            # Show First 5 rows
+            # Step 2: Show First 5 rows
             print("\nFirst 5 rows of the dataset:\n")
             print(df.head())
-            # Show total cyclists who participated
+            # Step 3: Show total cyclists who participated
             print(f"\nCyclists who participated in the event: {len(df)}")
-            # Show Dataframe columns
+            # Step 4: Show Dataframe columns
             print(f"Columns of the DataFrame: {df.columns.tolist()}\n")
 
         return df

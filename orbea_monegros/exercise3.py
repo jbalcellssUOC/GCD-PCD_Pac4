@@ -3,7 +3,7 @@ Exercise 3 Module
 This module contains the implementation of Exercise 3 for GCD-2024 PAC4.
 """
 
-from datetime import datetime
+# from datetime import datetime
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -43,26 +43,28 @@ def exercise3(df: pd.DataFrame,
 
     Args:
         df (pd.DataFrame): Input DataFrame.
+        print_results (bool): Whether to print results or not.
 
     Returns:
         pd.DataFrame: DataFrame with an additional 'time_grouped' column.
     """
 
     try:
-        df = df.copy()
+        df = df.copy()  # Copy Dataframe
 
         # Apply minutes_002040 function
         df['time_grouped'] = df['time'].apply(minutes_002040)
+
+        # Group by 'time_grouped' and count cyclists
+        grouped_df = df.groupby(
+            'time_grouped').size().reset_index(name='cyclist_count')
 
         if print_results:
             # Print the first 15 rows of the updated DataFrame
             print("\nFirst 15 rows of the grouped times DataFrame:\n")
             print(df.head(15), "\n")
 
-        # Group by 'time_grouped' and count cyclists
-        grouped_df = df.groupby(
-            'time_grouped').size().reset_index(name='cyclist_count')
-        if print_results:
+            # Print goruped Dataframe
             print("\nGrouped DataFrame:\n")
             print(grouped_df, "\n")
 
@@ -95,7 +97,7 @@ def exercise3(df: pd.DataFrame,
         plt.ylabel('Number of Cyclists')
         plt.grid(True, linestyle='--', alpha=0.7)
         # scatter_filename = f"img/ScatterPlot_{timestamp}.png"
-        scatter_filename = "img/ccatter_plot.png"
+        scatter_filename = "img/scatterplot.png"
         plt.savefig(scatter_filename)
         print(f"ScatterPlot saved as: {scatter_filename}\n")
         plt.show()
@@ -103,5 +105,5 @@ def exercise3(df: pd.DataFrame,
         return grouped_df
 
     except Exception as e:  # pylint: disable=broad-exception-caught
-        print(f"Ex1, an unexpected error occurred: {e}")
+        print(f"Ex3, an unexpected error occurred: {e}")
         raise

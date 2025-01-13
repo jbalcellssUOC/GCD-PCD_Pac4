@@ -2,12 +2,10 @@
 GCD-2024_PAC4 Utils Tests
 """
 
-
 import os
-import unittest
 import tempfile
+import unittest
 import pandas as pd
-
 import HtmlTestRunner
 from orbea_monegros.utils import load_dataset
 
@@ -17,19 +15,19 @@ class TestUtils(unittest.TestCase):
     Test suite for the load_dataset function.
     """
 
-    @classmethod
-    def setUpClass(cls):
+    def setUp(self):
         """
         Set up a temporary directory for dataset files.
         """
-        cls.tmp_dir = tempfile.TemporaryDirectory()
+        # Use 'with' to manage the temporary directory
+        self.tmp_dir_context = tempfile.TemporaryDirectory()
+        self.tmp_dir = self.tmp_dir_context.name
 
-    @classmethod
-    def tearDownClass(cls):
+    def tearDown(self):
         """
-        Remove the temporary directory after running tests.
+        Remove the temporary directory after each test.
         """
-        cls.tmp_dir.cleanup()
+        self.tmp_dir_context.cleanup()
 
     def create_test_file(self, filename: str, content: str) -> str:
         """
@@ -42,7 +40,7 @@ class TestUtils(unittest.TestCase):
         Returns:
             str: The full path to the created file.
         """
-        file_path = os.path.join(self.tmp_dir.name, filename)
+        file_path = os.path.join(self.tmp_dir, filename)
         with open(file_path, "w", encoding="utf-8") as f:
             f.write(content)
         return file_path
@@ -71,9 +69,9 @@ class TestUtils(unittest.TestCase):
         Test loading a valid dataset with an incorrect delimiter.
         """
         test_data = """dorsal;biker;club;time
-    4515;Christopher Bauer;Independiente;00:00:00
-    2017;Mary White;Independiente;00:00:00
-    """
+4515;Christopher Bauer;Independiente;00:00:00
+2017;Mary White;Independiente;00:00:00
+"""
         test_file = self.create_test_file("invalid_delimiter.csv", test_data)
 
         with self.assertRaises(ValueError):
@@ -114,7 +112,6 @@ if __name__ == "__main__":
     os.makedirs(REPORT_DIR, exist_ok=True)
 
     runner = HtmlTestRunner.HTMLTestRunner(
-        # output=REPORT_DIR,
         report_name="LoadDatasetTests",
         report_title="Test Report for Load Dataset"
     )
