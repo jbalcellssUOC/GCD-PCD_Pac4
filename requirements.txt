@@ -7,3 +7,4 @@ html-testRunner>=1.2.1
 faker
 pdoc
 pytest-cov
+bandit
