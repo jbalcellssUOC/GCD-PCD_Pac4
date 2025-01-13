@@ -5,10 +5,10 @@ GCD-2024_PAC4 Utils Tests
 import os
 import tempfile
 import unittest
-import pandas as pd
-import HtmlTestRunner
 import io
 from unittest.mock import patch
+import pandas as pd
+import HtmlTestRunner
 
 from orbea_monegros.utils import load_dataset
 

@@ -3,9 +3,9 @@ GCD-2024_PAC4 Exercise5 Tests
 """
 
 import unittest
-import pandas as pd
 from unittest.mock import patch
 import io
+import pandas as pd
 
 from orbea_monegros.exercise5 import exercise5
 
