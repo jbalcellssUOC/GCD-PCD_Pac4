@@ -5,7 +5,7 @@ name: Python application
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "develop" ]
   pull_request:
     branches: [ "develop" ]
 
@@ -38,6 +38,7 @@ jobs:
         pip install flake8 pytest
         pip install pdoc
         pip install bandit
+        pip install black
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Lint with flake8
