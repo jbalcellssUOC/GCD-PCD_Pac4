@@ -41,7 +41,7 @@ jobs:
 
     - name: Generate Documentation
       run: |
-        mkdir docs
+        mkdir -p docs
         pdoc --output-dir docs orbea_monegros          
   
     - name: Deploy to GitHub Pages
