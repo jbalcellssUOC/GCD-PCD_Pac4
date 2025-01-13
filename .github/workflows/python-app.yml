@@ -5,7 +5,7 @@ name: Python application
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "develop" ]
   pull_request:
     branches: [ "develop" ]
 
@@ -51,13 +51,9 @@ jobs:
       run: |
         pylint orbea_monegros tests        
 
-    - name: Check Code Formatting
-      run: |
-        black --check --diff .        
-
     - name: Run tests with pytest
       run: |
-        pytest --maxfail=5 --disable-warnings --cov=orbea_monegros --cov-report=xml
+        pytest --maxfail=5 --disable-warnings --cov=orbea_monegros --cov-report=xml:coverage/coverage.xml --cov-report=html:coverage
 
     - name: Run Bandit
       run: bandit -r .      

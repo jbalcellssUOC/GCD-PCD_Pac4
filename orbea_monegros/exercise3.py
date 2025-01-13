@@ -59,15 +59,6 @@ def exercise3(df: pd.DataFrame,
         grouped_df = df.groupby(
             'time_grouped').size().reset_index(name='cyclist_count')
 
-        if print_results:
-            # Print the first 15 rows of the updated DataFrame
-            print("\nFirst 15 rows of the grouped times DataFrame:\n")
-            print(df.head(15), "\n")
-
-            # Print goruped Dataframe
-            print("\nGrouped DataFrame:\n")
-            print(grouped_df, "\n")
-
         # Generate, show and save histogram
         plt.figure(figsize=(10, 6))
         plt.bar(grouped_df['time_grouped'],
@@ -81,8 +72,6 @@ def exercise3(df: pd.DataFrame,
         # filename = f"img/Histograma_{timestamp}.png"
         filename = "img/histograma.png"
         plt.savefig(filename)
-        print(f"Historgram saved as: {filename}")
-        plt.show()
 
         # Generate, show and save scatter plot
         plt.figure(figsize=(10, 6))
@@ -99,8 +88,23 @@ def exercise3(df: pd.DataFrame,
         # scatter_filename = f"img/ScatterPlot_{timestamp}.png"
         scatter_filename = "img/scatterplot.png"
         plt.savefig(scatter_filename)
-        print(f"ScatterPlot saved as: {scatter_filename}\n")
-        plt.show()
+
+        if print_results:
+            # Print the first 15 rows of the updated DataFrame
+            print("\nFirst 15 rows of the grouped times DataFrame:\n")
+            print(df.head(15), "\n")
+
+            # Print goruped Dataframe
+            print("\nGrouped DataFrame:\n")
+            print(grouped_df, "\n")
+
+            # Print historgram information
+            print(f"Historgram saved as: {filename}")
+            plt.show()
+
+            # Print scatter plot information
+            print(f"ScatterPlot saved as: {scatter_filename}\n")
+            plt.show()
 
         return grouped_df
 

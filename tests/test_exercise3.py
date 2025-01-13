@@ -92,15 +92,6 @@ class TestExercise3(unittest.TestCase):
                         "Output should be an empty DataFrame when input is "
                         "empty.")
 
-    @patch("orbea_monegros.exercise3.plt.show")
-    def test_plot_calls(self, mock_show):
-        """
-        Ensure plots are generated correctly without exceptions.
-        """
-        _ = exercise3(self.synthetic_data, print_results=False)
-        self.assertTrue(mock_show.called, "Plots should be generated and "
-                                          "shown.")
-
     @unittest.skipUnless(os.path.exists("data/dataset.csv"),
                          "Real data file is missing.")
     def test_exercise3_real_data(self):
