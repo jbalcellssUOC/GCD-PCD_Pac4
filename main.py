@@ -1,6 +1,5 @@
 """
 GCD-2024_PAC4 Main Script
-
 This script organizes and executes the PAC4 exercises.
 """
 
@@ -52,7 +51,6 @@ def run_exercise5(df: pd.DataFrame,
     """ Execute exercise5 """
 
     exercise5(df, print_results)
-    return None
 
 
 class ExerciseRunner:

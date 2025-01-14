@@ -7,25 +7,9 @@
   <img src="images/orbea-sample.png" alt="Orbea Sample" height="200" />
 </div>
 
-<div style="display: flex; justify-content: center; margin-bottom: 20px;">
-  <a href="#english-version" style="margin: 0 10px;">
-    <img src="images/flag-us.svg" alt="English" title="English" height="25" />
-  </a>
-  <a href="#spanish-version" style="margin: 0 10px;">
-    <img src="images/flag-es.svg" alt="Español" title="Español" height="25" />
-  </a>
-  <a href="#catalan-version" style="margin: 0 10px;">
-    <img src="images/flag-cat.svg" alt="Català" title="Català" height="25" />
-  </a>
-</div>
-
 # Orbea Monegros Python Package
 
----
-
-## English Version
-
-Welcome to the **Orbea Monegros** Python package, developed to analyze and manage data from the famous mountain biking event **Orbea Monegros 2024**. This package includes tools to handle anonymized rider data, perform statistical analysis, and generate visualizations of the results.
+Welcome to the **Orbea Monegros PAC4** Python package, developed to analyze and manage data from the famous mountain biking event **Orbea Monegros 2024**. This package includes tools to handle anonymized rider data, perform statistical analysis, and generate visualizations of the results.
 
 ## Table of Contents
 
@@ -33,19 +17,23 @@ Welcome to the **Orbea Monegros** Python package, developed to analyze and manag
 2. [Features](#features)
 3. [Prerequisites](#prerequisites)
 4. [Installation](#installation)
-5. [Usage](#usage)
-6. [Contributing](#contributing)
-7. [License](#license)
+5. [Project Folders](#comprehensive-overview-of-project-folders-and-files)
+6. [Usage](#usage)
+7. [Documentation Generation](#documentation-generation)
+8. [Security Analysis](#security-analysis)
+9. [GitHub Actions CI/CD Workflow](#github-actions-cicd-workflow)
+10. [Contributing](#contributing)
+11. [License](#license)
 
 ---
 
 ## Introduction
 
-The **Orbea Monegros** is one of the most popular mountain biking events held in Sariñena (Huesca). This package allows you to manage and analyze anonymized rider data, providing useful tools for researchers, organizers, and cycling enthusiasts.
+The **Orbea Monegros** is one of the most popular mountain biking events held in Sariñena (Huesca). This package allows you to manage and analyze anonymized rider data, providing useful tools for researchers, organizers, and cycling enthusiasts. This package contains the solution to PAC4 related to **Orbea Monegros**.
 
 ---
 
-## Features
+## Features of Orbea Monegros PAC4
 
 - **Statistical Calculations:**
   - Average times.
@@ -55,13 +43,16 @@ The **Orbea Monegros** is one of the most popular mountain biking events held in
 - **Data Manager:**
   - Read and process anonymized datasets.
 - **CLI Tools:**
-  - Run analysis directly from the command line.
+  - Run analysis and other tasks directly from the command line.
+- **HTML Reports & Documentacion**
+  - HTML Coverage Tests, HTML Vulnerabilities report, HTML modules and functions documentation
+
 
 ---
 
 ## Prerequisites
 
-- **Python 3.8 or later**.
+- **Python 3.10 or later**.
 - Dependencies listed in `requirements.txt`.
 
 ---
@@ -91,31 +82,201 @@ The **Orbea Monegros** is one of the most popular mountain biking events held in
    pip install -e .
    ```
 
+### `setup.py`
+
+The `setup.py` file is a key component in Python packages. It serves as the build script for the `setuptools` tool, which is used to package and distribute Python projects. This file provides metadata and instructions that allow Python's packaging tools to properly install and manage the package.
+
+#### Key Features of `setup.py`
+
+1. **Defines Metadata**: Specifies the package name, version, author, license, and a short description of the project.Also includes additional metadata like dependencies, classifiers, and project URLs.
+
+2. **Handles Dependencies**: Lists the required packages for the project using the `install_requires` argument and ensures that dependencies are automatically installed when the package is installed.
+
+3. **Supports Packaging and Distribution**: Allows the creation of source distributions (`sdist`) and wheel distributions (`bdist_wheel`) using commands like `python setup.py sdist` or `python setup.py bdist_wheel`. Also enables uploading the package to the Python Package Index (PyPI) for public or private distribution.
+
+4. **Custom Installation Commands**: Provides hooks to include custom behaviors during the installation process.
+
 ---
+
+## Comprehensive Overview of Project Folders and Files
+📂 root
+- 📜 main.py
+- 📜 run_tests.py
+- 📜 setup.py 
+- 📄 requirements.txt
+- 📖 README.md
+- 📝 LICENSE.md
+- 📖 INSTALL.md
+- 📖 CONTRIBUTING.md
+- 📖 CHANGELOG.md
+
+├── 📂 **orbea_monegros** -> Contains modules source for all PAC4 exercises in the project.
+
+├── 📂 **data** -> Contains the application's dataset files, essential for analysis and processing.
+
+├── 📂 **tests** -> Contains the complete test suite for validating application functionality.
+
+├── 📂 **coverage** -> Contains detailed coverage reports in HTML and XML formats, as well as HTML test documentation.
+
+├── 📂 **docs** -> Contains HTML documentation for all module functions and their usage.
+
+├── 📂 **img** -> Contains saved images in PNG format of histograms and scatter plots.
+
+├── 📂 **images** -> Contains images optimized for usage in Markdown files.
+
+├── 📂 **.github\workflows** -> Contains CD-CI GitHub Actions files, *python-app.yml*.
+
+
 
 ## Usage
+### How to run the code from the command line
 
-### Import the package
-
-Use the package's features in your code:
-
-```python
-from orbea_monegros import analysis
-
-# Example: calculate basic statistics of the dataset
-stats = analysis.calculate_statistics("data/dataset.csv")
-print(stats)
-```
-
-### Run from the command line
-
-If you configured a CLI command in `setup.py`, you can run:
+To execute all the analysis exercises included in this PAC4, you can run the following command. This will ensure that the specified dataset is processed according to the requirements and logic defined in the main script, providing the necessary outputs for the complete analysis.
 
 ```bash
-orbea-analysis --dataset data/dataset.csv
+python main.py -d data/dataset.csv
 ```
 
+If you wish to execute only one of the exercises (from 1 to 5), you must use the following command with the "e" option followed by the exercise number. Keep in mind that each individual exercise may depend on the execution of previous exercises, and therefore, the output will include information related to those as well.
+
+```bash
+python main.py -d data/dataset.csv -e 1
+```
+
+### Additional Parameters and Guidance
+
+Use the -h parameter to access detailed help on the application's functionality and available startup options. This feature provides valuable insights into the script's operations and allows you to explore various arguments and modifiers to tailor its behavior to your needs.
+
+>![alt text](images/Readme_image-0.png)
+
+## Tests Suite
+
+### How to Run Tests
+
+To execute the test suite and validate the functionality of the code, you can use the following command. This command will run the tests while limiting failures to five, suppressing warnings, and generating both XML and HTML coverage reports:
+
+```bash
+pytest --maxfail=5 --disable-warnings --cov=orbea_monegros --cov-report=xml:coverage/coverage.xml --cov-report=html:coverage
+```
+
+This will generate the HTML coverage report in the specified './coverage' directory, allowing you to analyze the test coverage in detail.
+
+![alt text](images/Readme_image-5.png)
+
+![alt text](images/Readme_image-4.png)
+
+### How to Review Coverage HTML Reports
+
+To review the coverage reports using an alternative approach, you can first run the tests with the coverage tool and then generate the HTML report. Use the following commands:
+
+```bash
+coverage run --source=orbea_monegros -m unittest discover -s tests -p 'test_*.py'
+coverage html -d coverage
+```
+
+This will generate the HTML coverage report in the specified './coverage' directory, allowing you to analyze the test coverage in detail.
+
+![alt text](images/Readme_image-1.png)
+
+![alt text](images/Readme_image-2.png)
+
+![alt text](images/Readme_image-3.png)
+
+![alt text](images/Readme_image-6.png)
 ---
+
+## Documentation Generation
+
+#### How to Generate Documentation
+
+To generate comprehensive documentation for codebase, including modules and tests, you can use the following command:
+
+```bash
+pdoc --output-dir docs orbea_monegros tests main.py run_tests.py
+```
+
+This command uses pdoc to create HTML documentation for the specified modules and scripts (orbea_monegros, tests, main.py, and run_tests.py). The output is saved in the '.docs' directory, providing an easy-to-navigate overview of the code's structure, functions, and classes. This documentation can be opened in a web browser to review the details of the codebase effectively.
+
+![alt text](images/Readme_image-7.png)
+
+![alt text](images/Readme_image-8.png)
+
+![alt text](images/Readme_image-9.png)
+
+### Security Analysis
+
+#### How to Perform a Security Analysis
+
+To perform a security analysis of your codebase, you can use the following command:
+
+```bash
+bandit -r orbea_monegros tests main.py run_tests.py setup.py -f html -o coverage/bandit_report.html
+```
+
+This command runs bandit, a tool designed to identify common security issues in Python code. It recursively scans the specified files and directories (orbea_monegros, tests, main.py, run_tests.py, and setup.py) for potential vulnerabilities.
+
+The analysis results are formatted as an HTML report and saved to './coverage/bandit_report.html'. You can open this file in a web browser to review any identified security risks and address them effectively.
+
+![alt text](images/Readme_image-10.png)
+
+### Code Quality Analysis
+
+#### How to Perform Static Code Analysis
+
+To perform a static code analysis and ensure adherence to Python coding standards, you can use the following command:
+
+```bash
+pylint orbea_monegros/ tests/ main.py run_tests.py
+```
+
+This command runs pylint, a static code analysis tool, on the specified directories and files (orbea_monegros/, tests/, main.py, and run_tests.py). It evaluates the code for:
+
+- Code quality and compliance with Python standards (PEP 8).
+- Potential errors and anti-patterns.
+- Suggestions for code improvements and refactoring.
+
+The output includes a detailed report with a score and recommendations for enhancing code quality, making it a useful tool for maintaining clean and maintainable code.
+
+![alt text](images/Readme_image-15.png)
+
+### GitHub Actions CI/CD Workflow
+
+#### Summary of Configuration
+
+A GitHub Actions workflow has been configured using the `python-app.yml` file to automate testing, linting, and deployment processes for the project. The workflow ensures code quality and functionality by executing the following tasks:
+
+1. **Setup and Dependencies**: 
+   - The workflow runs on a specified matrix of Python versions.
+   - It sets up the required Python environment and installs dependencies using `pip`.
+
+2. **Linting**:
+   - Ensures adherence to coding standards by running tools like `flake8` or similar linters.
+
+3. **Testing**:
+   - Executes the test suite using `pytest` or an equivalent testing framework to validate the codebase.
+   - Generates test coverage reports for further analysis.
+
+4. **Security Scanning**:
+   - Integrates tools like `bandit` to perform static analysis and identify potential security vulnerabilities in the code.
+
+5. **Artifact Management**:
+   - Uploads test results, coverage reports, and other relevant artifacts to the workflow for detailed inspection.
+
+6. **Deployment (Optional)**:
+   - Automates deployment processes if conditions (like passing all tests) are met.
+
+![alt text](images/Readme_image-11.png)
+
+![alt text](images/Readme_image-12.png)
+
+#### Purpose
+
+The workflow provides a robust CI/CD pipeline, ensuring consistent code quality and reducing manual intervention in repetitive tasks. It supports a seamless development process, from code validation to deployment.
+
+![alt text](images/Readme_image-13.png)
+
+![alt text](images/Readme_image-14.png)
+
 
 ## Contributing
 
@@ -143,264 +304,8 @@ This project is under the MIT license. See the [LICENSE](LICENSE) file for more 
 
 ---
 
-Thank you for using the **Orbea Monegros** package! If you have questions or suggestions, feel free to contact the author:
+Thank you for using the **Orbea Monegros PAC4** package! If you have questions or suggestions, feel free to contact the author:
 
 - **Author:** Jordi Balcells Saenz
 - **Email:** [jbalcellss@uoc.edu](mailto:jbalcellss@uoc.edu)
 - **Repository:** [https://github.com/jbalcellssUOC/GCD-PCD_Pac4](https://github.com/jbalcellssUOC/GCD-PCD_Pac4)
-
----
-
-## Spanish Version
-
-Bienvenido al paquete de Python **Orbea Monegros**, desarrollado para analizar y gestionar los datos de la famosa prueba de ciclismo de montaña **Orbea Monegros 2024**. Este paquete incluye herramientas para manejar datos anonimizados de los ciclistas, realizar análisis estadísticos y generar visualizaciones de los resultados.
-
-## Tabla de Contenidos
-
-1. [Introducción](#introducción)
-2. [Características](#características)
-3. [Requisitos previos](#requisitos-previos)
-4. [Instalación](#instalación)
-5. [Uso](#uso)
-6. [Contribuir](#contribuir)
-7. [Licencia](#licencia)
-
----
-
-## Introducción
-
-La **Orbea Monegros** es una de las pruebas de ciclismo de montaña más populares, celebrada en Sariñena (Huesca). Este paquete permite gestionar y analizar los datos anonimizados de los ciclistas, proporcionando herramientas útiles para investigadores, organizadores y entusiastas del ciclismo.
-
----
-
-## Características
-
-- **Cálculo estadístico:**
-  - Tiempos promedio.
-  - Distribución de tiempos por categoría.
-- **Visualizaciones:**
-  - Histogramas y gráficos comparativos.
-- **Gestor de datos:**
-  - Lectura y procesamiento del dataset anonimizado.
-- **Herramientas CLI:**
-  - Ejecuta análisis directamente desde la línea de comandos.
-
----
-
-## Requisitos previos
-
-- **Python 3.8 o superior**.
-- Dependencias enumeradas en `requirements.txt`.
-
----
-
-## Instalación
-
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/jbalcellssUOC/GCD-PCD_Pac4.git
-   cd GCD-PCD_Pac4
-   ```
-
-2. Crea un entorno virtual:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # macOS/Linux
-   .\venv\Scripts\activate  # Windows
-   ```
-
-3. Instala las dependencias:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Instala el paquete en modo editable:
-   ```bash
-   pip install -e .
-   ```
-
----
-
-## Uso
-
-### Importar el paquete
-
-Usa las funcionalidades del paquete en tu código:
-
-```python
-from orbea_monegros import analysis
-
-# Ejemplo: calcular estadísticas básicas del dataset
-stats = analysis.calculate_statistics("data/dataset.csv")
-print(stats)
-```
-
-### Ejecutar desde la línea de comandos
-
-Si configuraste un comando CLI en `setup.py`, puedes ejecutar:
-
-```bash
-orbea-analysis --dataset data/dataset.csv
-```
-
----
-
-## Contribuir
-
-Contribuciones son bienvenidas. Por favor, lee el archivo [CONTRIBUTING.md](CONTRIBUTING.md) para más información.
-
-Pasos básicos para contribuir:
-
-1. Crea una rama para tu funcionalidad:
-   ```bash
-   git checkout -b feature/nueva-funcionalidad
-   ```
-
-2. Asegúrate de que los tests pasan:
-   ```bash
-   pytest tests/
-   ```
-
-3. Envía un Pull Request explicando tus cambios.
-
----
-
-## Licencia
-
-Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
-
----
-
-¡Gracias por usar el paquete **Orbea Monegros**! Si tienes preguntas o sugerencias, no dudes en contactar al autor:
-
-- **Autor:** Jordi Balcells Saenz
-- **Email:** [jbalcellss@uoc.edu](mailto:jbalcellss@uoc.edu)
-- **Repositorio:** [https://github.com/jbalcellssUOC/GCD-PCD_Pac4](https://github.com/jbalcellssUOC/GCD-PCD_Pac4)
-
----
-
-## Catalan Version
-
-Benvingut al paquet de Python **Orbea Monegros**, desenvolupat per analitzar i gestionar les dades de la famosa prova de ciclisme de muntanya **Orbea Monegros 2024**. Aquest paquet inclou eines per gestionar dades anonimitzades dels ciclistes, fer anàlisis estadístiques i generar visualitzacions dels resultats.
-
-## Taula de Continguts
-
-1. [Introducció](#introducció)
-2. [Característiques](#característiques)
-3. [Requisits previs](#requisits-previs)
-4. [Instal·lació](#instal·lació)
-5. [Ús](#ús)
-6. [Contribuir](#contribuir)
-7. [Llicència](#llicència)
-
----
-
-## Introducció
-
-La **Orbea Monegros** és una de les proves de ciclisme de muntanya més populars, celebrada a Sariñena (Osca). Aquest paquet permet gestionar i analitzar les dades anonimitzades dels ciclistes, proporcionant eines útils per a investigadors, organitzadors i entusiastes del ciclisme.
-
----
-
-## Característiques
-
-- **Càlcul estadístic:**
-  - Temps mitjans.
-  - Distribució de temps per categoria.
-- **Visualitzacions:**
-  - Histogramas i gràfics comparatius.
-- **Gestor de dades:**
-  - Lectura i processament del dataset anonimitzat.
-- **Eines CLI:**
-  - Executa anàlisis directament des de la línia de comandaments.
-
----
-
-## Requisits previs
-
-- **Python 3.8 o superior**.
-- Dependències enumerades a `requirements.txt`.
-
----
-
-## Instal·lació
-
-1. Clona el repositori:
-   ```bash
-   git clone https://github.com/jbalcellssUOC/GCD-PCD_Pac4.git
-   cd GCD-PCD_Pac4
-   ```
-
-2. Crea un entorn virtual:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # macOS/Linux
-   .\venv\Scripts\activate  # Windows
-   ```
-
-3. Instal·la les dependències:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Instal·la el paquet en mode editable:
-   ```bash
-   pip install -e .
-   ```
-
----
-
-## Ús
-
-### Importa el paquet
-
-Usa les funcionalitats del paquet al teu codi:
-
-```python
-from orbea_monegros import analysis
-
-# Exemple: calcular estadístiques bàsiques del dataset
-stats = analysis.calculate_statistics("data/dataset.csv")
-print(stats)
-```
-
-### Executar des de la línia de comandaments
-
-Si vas configurar una comanda CLI a `setup.py`, pots executar:
-
-```bash
-orbea-analysis --dataset data/dataset.csv
-```
-
----
-
-## Contribuir
-
-Les contribucions són benvingudes. Si us plau, llegeix l'arxiu [CONTRIBUTING.md](CONTRIBUTING.md) per a més informació.
-
-Passos bàsics per contribuir:
-
-1. Crea una branca per a la teva funcionalitat:
-   ```bash
-   git checkout -b feature/nova-funcionalitat
-   ```
-
-2. Assegura't que els tests passen:
-   ```bash
-   pytest tests/
-   ```
-
-3. Envia un Pull Request explicant els teus canvis.
-
----
-
-## Llicència
-
-Aquest projecte està sota la llicència MIT. Consulta l'arxiu [LICENSE](LICENSE) per a més detalls.
-
----
-
-Gràcies per usar el paquet **Orbea Monegros**! Si tens preguntes o suggeriments, no dubtis a contactar amb l'autor:
-
-- **Autor:** Jordi Balcells Saenz
-- **Email:** [jbalcellss@uoc.edu](mailto:jbalcellss@uoc.edu)
-- **Repositori:** [https://github.com/jbalcellssUOC/GCD-PCD_Pac4](https://github.com/jbalcellssUOC/GCD-PCD_Pac4)

@@ -1,73 +1,73 @@
-# Instalación del Paquete Orbea Monegros
+# Installation of the Orbea Monegros PAC4 Package
 
-Este documento describe los pasos necesarios para instalar y configurar el paquete **Orbea Monegros** en tu entorno de desarrollo o producción.
+This document outlines the steps required to install and configure the **Orbea Monegros PAC4** package in your development or production environment.
 
 ---
 
-## Requisitos previos
+## Prerequisites
 
-Asegúrate de cumplir con los siguientes requisitos antes de proceder:
+Ensure you meet the following prerequisites before proceeding:
 
-1. **Python 3.8 o superior** instalado. Puedes verificar tu versión con:
+1. **Python 3.10 or higher** installed. Verify your version with:
    ```bash
    python --version
    ```
 
-2. **pip** (el gestor de paquetes de Python) instalado. Puedes verificarlo con:
+2. **pip** (Python's package manager) installed. Verify it with:
    ```bash
    pip --version
    ```
 
-3. Opcionalmente, instala **virtualenv** para crear un entorno virtual:
+3. Optionally, install **virtualenv** to create a virtual environment:
    ```bash
    pip install virtualenv
    ```
 
-4. Acceso al repositorio del proyecto en GitHub:
+4. Access to the project repository on GitHub:
    [https://github.com/jbalcellssUOC/GCD-PCD_Pac4.git](https://github.com/jbalcellssUOC/GCD-PCD_Pac4.git)
 
 ---
 
-## Instalación
+## Installation
 
-### 1. Clonar el repositorio
+### 1. Clone the repository
 
-Primero, clona el repositorio del proyecto desde GitHub:
+First, clone the project repository from GitHub:
 
 ```bash
 git clone https://github.com/jbalcellssUOC/GCD-PCD_Pac4.git
 cd GCD-PCD_Pac4
 ```
 
-### 2. Crear un entorno virtual (recomendado)
+### 2. Create a virtual environment (recommended)
 
-Para evitar conflictos entre dependencias, se recomienda utilizar un entorno virtual:
+To avoid dependency conflicts, it is recommended to use a virtual environment:
 
 ```bash
 python -m venv venv
 ```
 
-Activa el entorno virtual:
-- En macOS/Linux:
+Activate the virtual environment:
+- On macOS/Linux:
   ```bash
   source venv/bin/activate
   ```
-- En Windows:
+- On Windows:
   ```bash
   .\venv\Scripts\activate
   ```
 
-### 3. Instalar las dependencias
+### 3. Install dependencies
 
-Una vez dentro del entorno virtual, instala las dependencias necesarias:
+Once inside the virtual environment, install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Instalar el paquete en modo editable
+### 4. Install the package in editable mode
 
-Para trabajar con el paquete en desarrollo, instálalo en modo editable:
+To work with the package in development, install it in editable mode:
 
 ```bash
 pip install -e .
@@ -75,9 +75,9 @@ pip install -e .
 
 ---
 
-## Ejecución de pruebas
+## Running Tests
 
-Para asegurarte de que todo está funcionando correctamente, ejecuta los tests incluidos:
+To ensure everything is working correctly, run the included tests:
 
 ```bash
 pytest tests/
@@ -85,20 +85,20 @@ pytest tests/
 
 ---
 
-## Uso del paquete
+## Using the Package
 
-Tras la instalación, puedes utilizar el paquete desde cualquier script o directamente desde la línea de comandos:
+After installation, you can use the package from any script or directly from the command line:
 
-### Importar en un script:
+### Import in a script:
 
 ```python
 from orbea_monegros import main
 main()
 ```
 
-### Comando en la terminal:
+### Terminal Command:
 
-Si definiste un script ejecutable en `setup.py`, ejecuta:
+If an executable script was defined in `setup.py`, run:
 
 ```bash
 orbea-analysis
@@ -106,22 +106,21 @@ orbea-analysis
 
 ---
 
-## Desinstalación
+## Uninstallation
 
-Para desinstalar el paquete, simplemente ejecuta:
+To uninstall the package, simply run:
 
 ```bash
 pip uninstall orbea-monegros
 ```
 
-Si deseas eliminar también el entorno virtual, simplemente elimina la carpeta `venv/`:
+If you also want to remove the virtual environment, simply delete the `venv/` folder:
 
 ```bash
-rm -rf venv  # En macOS/Linux
-del venv     # En Windows
+rm -rf venv  # On macOS/Linux
+del venv     # On Windows
 ```
 
 ---
 
-¡Listo! Ahora puedes usar y desarrollar el paquete **Orbea Monegros**.
-
+That's it! You are now ready to use and develop with the **Orbea Monegros PAC4** package.

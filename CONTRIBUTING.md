@@ -1,119 +1,118 @@
-# Contributing to Orbea Monegros Python Package
+# Contributing to the Orbea Monegros PAC4 Python Package
 
-¡Gracias por tu interés en contribuir al proyecto Orbea Monegros! Tu ayuda es fundamental para mejorar y hacer crecer este paquete. Sigue esta guía para contribuir de manera efectiva.
+Thank you for your interest in contributing to the Orbea Monegros PAC4 project! Your help is essential for improving and growing this package. Follow this guide to contribute effectively.
 
 ## Table of Contents
-1. [Cómo empezar](#cómo-empezar)
-2. [Estructura del repositorio](#estructura-del-repositorio)
-3. [Reglas para contribuir](#reglas-para-contribuir)
-4. [Reporte de problemas](#reporte-de-problemas)
-5. [Envío de cambios (Pull Requests)](#envío-de-cambios-pull-requests)
-6. [Estilo de código](#estilo-de-código)
-7. [Contacto](#contacto)
+1. [Getting Started](#getting-started)
+2. [Repository Structure](#repository-structure)
+3. [Contribution Guidelines](#contribution-guidelines)
+4. [Reporting Issues](#reporting-issues)
+5. [Submitting Changes (Pull Requests)](#submitting-changes-pull-requests)
+6. [Code Style](#code-style)
+7. [Contact](#contact)
 
 ---
 
-## Cómo empezar
+## Getting Started
 
-1. **Clona el repositorio:**
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/jbalcellssUOC/GCD-PCD_Pac4.git
    cd GCD-PCD_Pac4
    ```
 
-2. **Crea un entorno virtual:**
+2. **Create a virtual environment:**
    ```bash
    python -m venv venv
-   source venv/bin/activate   # En macOS/Linux
-   .\venv\Scripts\activate    # En Windows
+   source venv/bin/activate   # On macOS/Linux
+   .\venv\Scripts\activate    # On Windows
    ```
 
-3. **Instala las dependencias:**
+3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Ejecuta los tests para asegurarte de que todo está funcionando:**
+4. **Run tests to ensure everything works:**
    ```bash
    pytest tests/
    ```
 
 ---
 
-## Estructura del repositorio
+## Repository Structure
 
-- `orbea_monegros/`: Contiene el código principal del paquete.
-- `tests/`: Incluye los tests unitarios.
-- `data/`: Archivos de datos necesarios para el análisis.
-- `README.md`: Documentación general del proyecto.
-- `setup.py`: Archivo para empaquetar y distribuir el proyecto.
-- `CONTRIBUTING.md`: Guía para colaborar en el proyecto.
-- `requirements.txt`: Dependencias del proyecto.
+- `orbea_monegros/`: Contains the main package code.
+- `tests/`: Includes unit tests.
+- `data/`: Dataset files required for analysis.
+- `README.md`: General project documentation.
+- `setup.py`: File for packaging and distributing the project.
+- `CONTRIBUTING.md`: Guide for contributing to the project.
+- `requirements.txt`: Project dependencies.
 
 ---
 
-## Reglas para contribuir
+## Contribution Guidelines
 
-1. **Sé respetuoso**: Este es un espacio colaborativo. Sé amable y paciente con los demás colaboradores.
-2. **Crea una rama para tu contribución**:
+1. **Be respectful**: This is a collaborative space. Be kind and patient with other contributors.
+2. **Create a branch for your contribution**:
    ```bash
-   git checkout -b feature/nueva-funcionalidad
+   git checkout -b feature/new-feature
    ```
-3. **Escribe tests para cualquier funcionalidad nueva**.
-4. **Proporciona documentación clara**: Añade o actualiza la documentación si introduces cambios significativos.
+3. **Write tests for any new functionality**.
+4. **Provide clear documentation**: Add or update documentation if you introduce significant changes.
 
 ---
 
-## Reporte de problemas
+## Reporting Issues
 
-Si encuentras un problema o tienes una sugerencia, por favor, crea un [issue en GitHub](https://github.com/jbalcellssUOC/GCD-PCD_Pac4/issues) con:
+If you encounter an issue or have a suggestion, please create an [issue on GitHub](https://github.com/jbalcellssUOC/GCD-PCD_Pac4/issues) with:
 
-- Una descripción detallada del problema o sugerencia.
-- Pasos para reproducir el problema (si aplica).
-- Capturas de pantalla o ejemplos de código (si es relevante).
+- A detailed description of the issue or suggestion.
+- Steps to reproduce the issue (if applicable).
+- Screenshots or code examples (if relevant).
 
 ---
 
-## Envío de cambios (Pull Requests)
+## Submitting Changes (Pull Requests)
 
-1. **Asegúrate de que tu rama está actualizada**:
+1. **Ensure your branch is up-to-date**:
    ```bash
    git pull origin main
    ```
 
-2. **Confirma tus cambios y escribe mensajes de commit claros**:
+2. **Commit your changes with clear messages**:
    ```bash
    git add .
-   git commit -m "Descripción clara del cambio realizado"
+   git commit -m "Clear description of the change made"
    ```
 
-3. **Envía tu Pull Request**:
-   - Ve a la página del repositorio en GitHub.
-   - Haz clic en "Compare & Pull Request".
-   - Proporciona una descripción detallada de los cambios realizados.
+3. **Submit your Pull Request**:
+   - Go to the repository page on GitHub.
+   - Click "Compare & Pull Request."
+   - Provide a detailed description of the changes made.
 
-4. **Espera revisión**: Un colaborador revisará tu PR y te dará retroalimentación si es necesario.
+4. **Await review**: A collaborator will review your PR and provide feedback if needed.
 
 ---
 
-## Estilo de código
+## Code Style
 
-- Sigue las normas de estilo de código de [PEP 8](https://peps.python.org/pep-0008/).
-- Usa docstrings para documentar funciones y clases.
-- Asegúrate de que el código pase las verificaciones de linting:
+- Follow the coding style guidelines from [PEP 8](https://peps.python.org/pep-0008/).
+- Use docstrings to document functions and classes.
+- Ensure your code passes linting checks:
   ```bash
   flake8 orbea_monegros
   ```
 
 ---
 
-## Contacto
+## Contact
 
-Si tienes alguna pregunta, no dudes en ponerte en contacto:
+If you have any questions, feel free to reach out:
 
-- Autor: Jordi Balcells Saenz
+- Author: Jordi Balcells Saenz
 - Email: [jbalcellss@uoc.edu](mailto:jbalcellss@uoc.edu)
-- Repositorio: [Orbea Monegros en GitHub](https://github.com/jbalcellssUOC/GCD-PCD_Pac4.git)
+- Repository: [Orbea Monegros PAC4 on GitHub](https://github.com/jbalcellssUOC/GCD-PCD_Pac4.git)
 
-¡Gracias por contribuir! ❤️
-
+Thank you for contributing! ❤️
