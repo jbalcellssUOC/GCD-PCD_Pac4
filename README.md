@@ -7,7 +7,7 @@
   <img src="images/orbea-sample.png" alt="Orbea Sample" height="200" />
 </div>
 
-# Orbea Monegros Python Package
+# Orbea Monegros Python PAC4 Package
 
 Welcome to the **Orbea Monegros PAC4** Python package, developed to analyze and manage data from the famous mountain biking event **Orbea Monegros 2024**. This package includes tools to handle anonymized rider data, perform statistical analysis, and generate visualizations of the results.
 
