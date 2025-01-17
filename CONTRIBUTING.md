@@ -3,25 +3,30 @@
 Thank you for your interest in contributing to the Orbea Monegros PAC4 project! Your help is essential for improving and growing this package. Follow this guide to contribute effectively.
 
 ## Table of Contents
-1. [Getting Started](#getting-started)
-2. [Repository Structure](#repository-structure)
-3. [Contribution Guidelines](#contribution-guidelines)
-4. [Reporting Issues](#reporting-issues)
-5. [Submitting Changes (Pull Requests)](#submitting-changes-pull-requests)
-6. [Code Style](#code-style)
-7. [Contact](#contact)
+
+- [Contributing to the Orbea Monegros PAC4 Python Package](#contributing-to-the-orbea-monegros-pac4-python-package)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+  - [Repository Structure](#repository-structure)
+  - [Contribution Guidelines](#contribution-guidelines)
+  - [Reporting Issues](#reporting-issues)
+  - [Submitting Changes (Pull Requests)](#submitting-changes-pull-requests)
+  - [Code Style](#code-style)
+  - [Contact](#contact)
 
 ---
 
 ## Getting Started
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/jbalcellssUOC/GCD-PCD_Pac4.git
    cd GCD-PCD_Pac4
    ```
 
 2. **Create a virtual environment:**
+
    ```bash
    python -m venv venv
    source venv/bin/activate   # On macOS/Linux
@@ -29,11 +34,13 @@ Thank you for your interest in contributing to the Orbea Monegros PAC4 project! 
    ```
 
 3. **Install dependencies:**
+
    ```bash
    pip install -r requirements.txt
    ```
 
 4. **Run tests to ensure everything works:**
+
    ```bash
    pytest tests/
    ```
@@ -56,9 +63,11 @@ Thank you for your interest in contributing to the Orbea Monegros PAC4 project! 
 
 1. **Be respectful**: This is a collaborative space. Be kind and patient with other contributors.
 2. **Create a branch for your contribution**:
+
    ```bash
    git checkout -b feature/new-feature
    ```
+
 3. **Write tests for any new functionality**.
 4. **Provide clear documentation**: Add or update documentation if you introduce significant changes.
 
@@ -77,11 +86,13 @@ If you encounter an issue or have a suggestion, please create an [issue on GitHu
 ## Submitting Changes (Pull Requests)
 
 1. **Ensure your branch is up-to-date**:
+
    ```bash
    git pull origin main
    ```
 
 2. **Commit your changes with clear messages**:
+
    ```bash
    git add .
    git commit -m "Clear description of the change made"
@@ -101,6 +112,7 @@ If you encounter an issue or have a suggestion, please create an [issue on GitHu
 - Follow the coding style guidelines from [PEP 8](https://peps.python.org/pep-0008/).
 - Use docstrings to document functions and classes.
 - Ensure your code passes linting checks:
+
   ```bash
   flake8 orbea_monegros
   ```

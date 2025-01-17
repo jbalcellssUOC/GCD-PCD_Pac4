@@ -14,7 +14,7 @@ Welcome to the **Orbea Monegros PAC4** Python package, developed to analyze and 
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Features](#features)
+2. [Features](#features-of-orbea-monegros-pac4)
 3. [Prerequisites](#prerequisites)
 4. [Installation](#installation)
 5. [Project Folders](#comprehensive-overview-of-project-folders-and-files)
@@ -47,7 +47,6 @@ The **Orbea Monegros** is one of the most popular mountain biking events held in
 - **HTML Reports & Documentacion**
   - HTML Coverage Tests, HTML Vulnerabilities report, HTML modules and functions documentation
 
-
 ---
 
 ## Prerequisites
@@ -60,12 +59,14 @@ The **Orbea Monegros** is one of the most popular mountain biking events held in
 ## Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/jbalcellssUOC/GCD-PCD_Pac4.git
    cd GCD-PCD_Pac4
    ```
 
 2. Create a virtual environment:
+
    ```bash
    python -m venv venv
    source venv/bin/activate   # macOS/Linux
@@ -73,11 +74,13 @@ The **Orbea Monegros** is one of the most popular mountain biking events held in
    ```
 
 3. Install dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
 
 4. Install the package in editable mode:
+
    ```bash
    pip install -e .
    ```
@@ -99,10 +102,12 @@ The `setup.py` file is a key component in Python packages. It serves as the buil
 ---
 
 ## Comprehensive Overview of Project Folders and Files
+
 📂 root
+
 - 📜 main.py
 - 📜 run_tests.py
-- 📜 setup.py 
+- 📜 setup.py
 - 📄 requirements.txt
 - 📖 README.md
 - 📝 LICENSE.md
@@ -126,9 +131,8 @@ The `setup.py` file is a key component in Python packages. It serves as the buil
 
 ├── 📂 **.github\workflows** -> Contains CD-CI GitHub Actions files, *python-app.yml*.
 
-
-
 ## Usage
+
 ### How to run the code from the command line
 
 To execute all the analysis exercises included in this PAC4, you can run the following command. This will ensure that the specified dataset is processed according to the requirements and logic defined in the main script, providing the necessary outputs for the complete analysis.
@@ -165,6 +169,19 @@ This will generate the HTML coverage report in the specified './coverage' direct
 
 ![alt text](images/Readme_image-4.png)
 
+## Running Tests in Visual Studio Code and Command Line
+
+You can execute the test suite for this project either through the command line or directly within the Visual Studio Code or your favorite IDE. Both approaches provide detailed feedback on the status of each test, making it easy to identify and resolve any issues.
+
+When running tests via the command line using `unittest`, you will see a summary of the tests executed, including the total number of tests, their status (passed, failed, or errored), and the time taken to complete. This output is straightforward and efficient for developers who prefer a terminal-based workflow.
+
+Alternatively, Visual Studio Code and others IDE's offers an integrated testing experience with its Testing sidebar. It provides an intuitive interface to run and debug tests individually or as a suite. Results are displayed in real-time, with clear visual indicators for success or failure, making it ideal for developers who prefer a more graphical approach to testing. This combination of methods ensures flexibility and convenience in maintaining test quality across the project. 
+
+> **Note**: Some exceptions are intentionally handled during negative test cases in certain exercises, as demonstrated in the test suite. These tests ensure that the code behaves as expected when encountering invalid inputs or edge cases, reinforcing its robustness.
+
+![alt text](images/Readme_image-15.png)
+![alt text](images/Readme_image-16.png)
+
 ### How to Review Coverage HTML Reports
 
 To review the coverage reports using an alternative approach, you can first run the tests with the coverage tool and then generate the HTML report. Use the following commands:
@@ -174,7 +191,7 @@ coverage run --source=orbea_monegros -m unittest discover -s tests -p 'test_*.py
 coverage html -d coverage
 ```
 
-This will generate the HTML coverage report in the specified './coverage' directory, allowing you to analyze the test coverage in detail.
+> **Note**: This will generate the HTML coverage report in the specified './coverage' directory, allowing you to analyze the test coverage in detail.
 
 ![alt text](images/Readme_image-1.png)
 
@@ -183,11 +200,12 @@ This will generate the HTML coverage report in the specified './coverage' direct
 ![alt text](images/Readme_image-3.png)
 
 ![alt text](images/Readme_image-6.png)
+
 ---
 
 ## Documentation Generation
 
-#### How to Generate Documentation
+### How to Generate Documentation
 
 To generate comprehensive documentation for codebase, including modules and tests, you can use the following command:
 
@@ -213,7 +231,7 @@ To perform a security analysis of your codebase, you can use the following comma
 bandit -r orbea_monegros tests main.py run_tests.py setup.py -f html -o coverage/bandit_report.html
 ```
 
-This command runs bandit, a tool designed to identify common security issues in Python code. It recursively scans the specified files and directories (orbea_monegros, tests, main.py, run_tests.py, and setup.py) for potential vulnerabilities.
+> **Note**: This command runs bandit, a tool designed to identify common security issues in Python code. It recursively scans the specified files and directories (orbea_monegros, tests, main.py, run_tests.py, and setup.py) for potential vulnerabilities.
 
 The analysis results are formatted as an HTML report and saved to './coverage/bandit_report.html'. You can open this file in a web browser to review any identified security risks and address them effectively.
 
@@ -235,7 +253,7 @@ This command runs pylint, a static code analysis tool, on the specified director
 - Potential errors and anti-patterns.
 - Suggestions for code improvements and refactoring.
 
-The output includes a detailed report with a score and recommendations for enhancing code quality, making it a useful tool for maintaining clean and maintainable code.
+> **Note**: The output includes a detailed report with a score and recommendations for enhancing code quality, making it a useful tool for maintaining clean and maintainable code.
 
 ![alt text](images/Readme_image-15.png)
 
@@ -245,7 +263,7 @@ The output includes a detailed report with a score and recommendations for enhan
 
 A GitHub Actions workflow has been configured using the `python-app.yml` file to automate testing, linting, and deployment processes for the project. The workflow ensures code quality and functionality by executing the following tasks:
 
-1. **Setup and Dependencies**: 
+1. **Setup and Dependencies**:
    - The workflow runs on a specified matrix of Python versions.
    - It sets up the required Python environment and installs dependencies using `pip`.
 
@@ -277,7 +295,6 @@ The workflow provides a robust CI/CD pipeline, ensuring consistent code quality 
 
 ![alt text](images/Readme_image-14.png)
 
-
 ## Contributing
 
 Contributions are welcome. Please read the [CONTRIBUTING.md](CONTRIBUTING.md) file for more information.
@@ -285,11 +302,13 @@ Contributions are welcome. Please read the [CONTRIBUTING.md](CONTRIBUTING.md) fi
 Basic steps to contribute:
 
 1. Create a branch for your feature:
+
    ```bash
    git checkout -b feature/new-feature
    ```
 
 2. Ensure tests pass:
+
    ```bash
    pytest tests/
    ```

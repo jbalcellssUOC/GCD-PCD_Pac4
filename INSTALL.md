@@ -9,16 +9,19 @@ This document outlines the steps required to install and configure the **Orbea M
 Ensure you meet the following prerequisites before proceeding:
 
 1. **Python 3.10 or higher** installed. Verify your version with:
+
    ```bash
    python --version
    ```
 
 2. **pip** (Python's package manager) installed. Verify it with:
+
    ```bash
    pip --version
    ```
 
 3. Optionally, install **virtualenv** to create a virtual environment:
+
    ```bash
    pip install virtualenv
    ```
@@ -48,11 +51,15 @@ python -m venv venv
 ```
 
 Activate the virtual environment:
+
 - On macOS/Linux:
+
   ```bash
   source venv/bin/activate
   ```
+
 - On Windows:
+
   ```bash
   .\venv\Scripts\activate
   ```
@@ -89,14 +96,14 @@ pytest tests/
 
 After installation, you can use the package from any script or directly from the command line:
 
-### Import in a script:
+### Import in a script
 
 ```python
 from orbea_monegros import main
 main()
 ```
 
-### Terminal Command:
+### Terminal Command
 
 If an executable script was defined in `setup.py`, run:
 
