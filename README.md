@@ -169,6 +169,19 @@ This will generate the HTML coverage report in the specified './coverage' direct
 
 ![alt text](images/Readme_image-4.png)
 
+## Running Tests in Visual Studio Code and Command Line
+
+You can execute the test suite for this project either through the command line or directly within the Visual Studio Code or your favorite IDE. Both approaches provide detailed feedback on the status of each test, making it easy to identify and resolve any issues.
+
+When running tests via the command line using `unittest`, you will see a summary of the tests executed, including the total number of tests, their status (passed, failed, or errored), and the time taken to complete. This output is straightforward and efficient for developers who prefer a terminal-based workflow.
+
+Alternatively, Visual Studio Code and others IDE's offers an integrated testing experience with its Testing sidebar. It provides an intuitive interface to run and debug tests individually or as a suite. Results are displayed in real-time, with clear visual indicators for success or failure, making it ideal for developers who prefer a more graphical approach to testing. This combination of methods ensures flexibility and convenience in maintaining test quality across the project. 
+
+> **Note**: Some exceptions are intentionally handled during negative test cases in certain exercises, as demonstrated in the test suite. These tests ensure that the code behaves as expected when encountering invalid inputs or edge cases, reinforcing its robustness.
+
+![alt text](images/Readme_image-15.png)
+![alt text](images/Readme_image-16.png)
+
 ### How to Review Coverage HTML Reports
 
 To review the coverage reports using an alternative approach, you can first run the tests with the coverage tool and then generate the HTML report. Use the following commands:
@@ -178,7 +191,7 @@ coverage run --source=orbea_monegros -m unittest discover -s tests -p 'test_*.py
 coverage html -d coverage
 ```
 
-This will generate the HTML coverage report in the specified './coverage' directory, allowing you to analyze the test coverage in detail.
+> **Note**: This will generate the HTML coverage report in the specified './coverage' directory, allowing you to analyze the test coverage in detail.
 
 ![alt text](images/Readme_image-1.png)
 
@@ -218,7 +231,7 @@ To perform a security analysis of your codebase, you can use the following comma
 bandit -r orbea_monegros tests main.py run_tests.py setup.py -f html -o coverage/bandit_report.html
 ```
 
-This command runs bandit, a tool designed to identify common security issues in Python code. It recursively scans the specified files and directories (orbea_monegros, tests, main.py, run_tests.py, and setup.py) for potential vulnerabilities.
+> **Note**: This command runs bandit, a tool designed to identify common security issues in Python code. It recursively scans the specified files and directories (orbea_monegros, tests, main.py, run_tests.py, and setup.py) for potential vulnerabilities.
 
 The analysis results are formatted as an HTML report and saved to './coverage/bandit_report.html'. You can open this file in a web browser to review any identified security risks and address them effectively.
 
@@ -240,7 +253,7 @@ This command runs pylint, a static code analysis tool, on the specified director
 - Potential errors and anti-patterns.
 - Suggestions for code improvements and refactoring.
 
-The output includes a detailed report with a score and recommendations for enhancing code quality, making it a useful tool for maintaining clean and maintainable code.
+> **Note**: The output includes a detailed report with a score and recommendations for enhancing code quality, making it a useful tool for maintaining clean and maintainable code.
 
 ![alt text](images/Readme_image-15.png)
 
