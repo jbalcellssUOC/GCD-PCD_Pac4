@@ -14,7 +14,7 @@ Welcome to the **Orbea Monegros PAC4** Python package, developed to analyze and 
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Features](#features)
+2. [Features](#features-of-orbea-monegros-pac4)
 3. [Prerequisites](#prerequisites)
 4. [Installation](#installation)
 5. [Project Folders](#comprehensive-overview-of-project-folders-and-files)
@@ -47,7 +47,6 @@ The **Orbea Monegros** is one of the most popular mountain biking events held in
 - **HTML Reports & Documentacion**
   - HTML Coverage Tests, HTML Vulnerabilities report, HTML modules and functions documentation
 
-
 ---
 
 ## Prerequisites
@@ -60,12 +59,14 @@ The **Orbea Monegros** is one of the most popular mountain biking events held in
 ## Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/jbalcellssUOC/GCD-PCD_Pac4.git
    cd GCD-PCD_Pac4
    ```
 
 2. Create a virtual environment:
+
    ```bash
    python -m venv venv
    source venv/bin/activate   # macOS/Linux
@@ -73,11 +74,13 @@ The **Orbea Monegros** is one of the most popular mountain biking events held in
    ```
 
 3. Install dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
 
 4. Install the package in editable mode:
+
    ```bash
    pip install -e .
    ```
@@ -99,10 +102,12 @@ The `setup.py` file is a key component in Python packages. It serves as the buil
 ---
 
 ## Comprehensive Overview of Project Folders and Files
+
 📂 root
+
 - 📜 main.py
 - 📜 run_tests.py
-- 📜 setup.py 
+- 📜 setup.py
 - 📄 requirements.txt
 - 📖 README.md
 - 📝 LICENSE.md
@@ -126,9 +131,8 @@ The `setup.py` file is a key component in Python packages. It serves as the buil
 
 ├── 📂 **.github\workflows** -> Contains CD-CI GitHub Actions files, *python-app.yml*.
 
-
-
 ## Usage
+
 ### How to run the code from the command line
 
 To execute all the analysis exercises included in this PAC4, you can run the following command. This will ensure that the specified dataset is processed according to the requirements and logic defined in the main script, providing the necessary outputs for the complete analysis.
@@ -183,11 +187,12 @@ This will generate the HTML coverage report in the specified './coverage' direct
 ![alt text](images/Readme_image-3.png)
 
 ![alt text](images/Readme_image-6.png)
+
 ---
 
 ## Documentation Generation
 
-#### How to Generate Documentation
+### How to Generate Documentation
 
 To generate comprehensive documentation for codebase, including modules and tests, you can use the following command:
 
@@ -245,7 +250,7 @@ The output includes a detailed report with a score and recommendations for enhan
 
 A GitHub Actions workflow has been configured using the `python-app.yml` file to automate testing, linting, and deployment processes for the project. The workflow ensures code quality and functionality by executing the following tasks:
 
-1. **Setup and Dependencies**: 
+1. **Setup and Dependencies**:
    - The workflow runs on a specified matrix of Python versions.
    - It sets up the required Python environment and installs dependencies using `pip`.
 
@@ -277,7 +282,6 @@ The workflow provides a robust CI/CD pipeline, ensuring consistent code quality 
 
 ![alt text](images/Readme_image-14.png)
 
-
 ## Contributing
 
 Contributions are welcome. Please read the [CONTRIBUTING.md](CONTRIBUTING.md) file for more information.
@@ -285,11 +289,13 @@ Contributions are welcome. Please read the [CONTRIBUTING.md](CONTRIBUTING.md) fi
 Basic steps to contribute:
 
 1. Create a branch for your feature:
+
    ```bash
    git checkout -b feature/new-feature
    ```
 
 2. Ensure tests pass:
+
    ```bash
    pytest tests/
    ```

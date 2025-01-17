@@ -9,16 +9,19 @@ Aquest document descriu els passos necessaris per instal·lar i configurar el pa
 Assegura't de complir amb els següents requisits abans de procedir:
 
 1. **Python 3.10 o superior** instal·lat. Pots verificar la teva versió amb:
+
    ```bash
    python --version
    ```
 
 2. **pip** (el gestor de paquets de Python) instal·lat. Pots verificar-ho amb:
+
    ```bash
    pip --version
    ```
 
 3. Opcionalment, instal·la **virtualenv** per crear un entorn virtual:
+
    ```bash
    pip install virtualenv
    ```
@@ -48,11 +51,15 @@ python -m venv venv
 ```
 
 Activa l'entorn virtual:
+
 - A macOS/Linux:
+
   ```bash
   source venv/bin/activate
   ```
+
 - A Windows:
+
   ```bash
   .\venv\Scripts\activate
   ```
@@ -89,14 +96,14 @@ pytest tests/
 
 Després de la instal·lació, pots utilitzar el paquet des de qualsevol script o directament des de la línia de comandes:
 
-### Importar en un script:
+### Importar en un script
 
 ```python
 from orbea_monegros import main
 main()
 ```
 
-### Comanda al terminal:
+### Comanda al terminal
 
 Si vas definir un script executable a `setup.py`, executa:
 

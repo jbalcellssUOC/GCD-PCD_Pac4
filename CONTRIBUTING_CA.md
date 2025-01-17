@@ -3,25 +3,30 @@
 Gràcies pel teu interès a contribuir al projecte Orbea Monegros PAC4! La teva ajuda és fonamental per millorar i fer créixer aquest paquet. Segueix aquesta guia per contribuir de manera efectiva.
 
 ## Taula de continguts
-1. [Com començar](#com-començar)
-2. [Estructura del repositori](#estructura-del-repositori)
-3. [Regles per contribuir](#regles-per-contribuir)
-4. [Informar de problemes](#informar-de-problemes)
-5. [Enviament de canvis (Pull Requests)](#enviament-de-canvis-pull-requests)
-6. [Estil de codi](#estil-de-codi)
-7. [Contacte](#contacte)
+
+- [Contribuir al paquet Python d'Orbea Monegros PAC4](#contribuir-al-paquet-python-dorbea-monegros-pac4)
+  - [Taula de continguts](#taula-de-continguts)
+  - [Com començar](#com-començar)
+  - [Estructura del repositori](#estructura-del-repositori)
+  - [Regles per contribuir](#regles-per-contribuir)
+  - [Informar de problemes](#informar-de-problemes)
+  - [Enviament de canvis (Pull Requests)](#enviament-de-canvis-pull-requests)
+  - [Estil de codi](#estil-de-codi)
+  - [Contacte](#contacte)
 
 ---
 
 ## Com començar
 
 1. **Clona el repositori:**
+
    ```bash
    git clone https://github.com/jbalcellssUOC/GCD-PCD_Pac4.git
    cd GCD-PCD_Pac4
    ```
 
 2. **Crea un entorn virtual:**
+
    ```bash
    python -m venv venv
    source venv/bin/activate   # A macOS/Linux
@@ -29,11 +34,13 @@ Gràcies pel teu interès a contribuir al projecte Orbea Monegros PAC4! La teva 
    ```
 
 3. **Instal·la les dependències:**
+
    ```bash
    pip install -r requirements.txt
    ```
 
 4. **Executa els tests per assegurar-te que tot funciona:**
+
    ```bash
    pytest tests/
    ```
@@ -56,9 +63,11 @@ Gràcies pel teu interès a contribuir al projecte Orbea Monegros PAC4! La teva 
 
 1. **Sigues respectuós**: Aquest és un espai col·laboratiu. Sigues amable i pacient amb els altres col·laboradors.
 2. **Crea una branca per a la teva contribució**:
+
    ```bash
    git checkout -b feature/nova-funcionalitat
    ```
+
 3. **Escriu tests per a qualsevol funcionalitat nova**.
 4. **Proporciona documentació clara**: Afegeix o actualitza la documentació si introdueixes canvis significatius.
 
@@ -77,11 +86,13 @@ Si trobes un problema o tens una suggerència, si us plau, crea un [issue a GitH
 ## Enviament de canvis (Pull Requests)
 
 1. **Assegura't que la teva branca està actualitzada**:
+
    ```bash
    git pull origin main
    ```
 
 2. **Confirma els teus canvis i escriu missatges de commit clars**:
+
    ```bash
    git add .
    git commit -m "Descripció clara del canvi realitzat"
@@ -101,6 +112,7 @@ Si trobes un problema o tens una suggerència, si us plau, crea un [issue a GitH
 - Segueix les normes d'estil de codi de [PEP 8](https://peps.python.org/pep-0008/).
 - Fes servir docstrings per documentar funcions i classes.
 - Assegura't que el codi passi les verificacions de linting:
+
   ```bash
   flake8 orbea_monegros
   ```
